@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>html-properties</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			
+			var newdiv = $('<div></div>',{
+				'text':'겨울에는 눈이 올까요??',
+				'click':function(){
+						$(this).css('color','red').css('fond-size','2.0em');
+						}
+			})
+			newdiv.appendTo('body');
+			
+			
+			$('<button></button>',{
+				'text':'이미지나와라',
+				'click':function(){
+					$('<img></img>',{
+						'style':'margin: 10px; width:100px',
+						//'width':'100px',
+						'src':'boygirl.png',
+						'title':function(){
+							str=$(this).attr('src');
+							a=str.lastIndexOf('/');
+							b=str.lastIndexOf('.');
+							title = str.substring(a+1,b);
+							return title;
+						},
+						'click':function(){
+							$(this).css('border','solid 5px').css('border-color','black');
+						},
+					}).appendTo('body')
+					
+				}
+			}).appendTo('body')
+		
+			////////////////////////
+			var imgArr = ['../images/charmander.png','../images/eevee.png','../images/pikachu.png','../images/snorlax.png','../images/bullbasaur.png'];
+			var ranNum;
+			/////////////
+			$(document).keypress(function(e) {
+				ranNum = Math.floor(Math.random()*$(imgArr).length);
+			    if(e.which == 13) {
+			    	$('<img></img>',{
+						'style':'margin: 10px',
+						'width':'50px',
+						'src':imgArr[ranNum],
+						'click':function(){
+							$(this).css('border','solid 5px').css('border-color','black');
+						},
+					}).appendTo('body')
+			    }
+			});
+			//////////////////////////
+			$('<button></button>',{
+				'text':'포켓몬 나와라!!',
+				'click':function(){
+					ranNum = Math.floor(Math.random()*5);
+					$('<img></img>',{
+						'width':'50px',
+						'src':imgArr[ranNum],
+					}).appendTo('body')
+				}
+			}).appendTo('body')
+		})
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 500px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+
+	<p>겨울에 꽃이 피었습니다</p>
+	
+	
+	<div id="divSum">
+		<h3>properties - $(“html”), $(“html”, {propertis})</h3>
+		var newdiv = $('&lt;div&gt;&lt;/div&gt;',{'text','겨울'})
+		<br>newdiv.appendTo('body');
+		<br>
+		<br>
+		<h3>properties - 예: 버튼 body에 더하기</h3>
+		$(function(){<br>
+		&nbsp;&nbsp;&nbsp;$('&lt;button&gt;&lt;/button&gt;',{<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'text':'버튼이름',<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'click':function(){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(==버튼 클릭 이벤트 내용==)<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+		&nbsp;&nbsp;&nbsp;}).appendTo('body')<br>
+		})<br>
+		<br>
+		<h3>배열 이용 랜덤이미지</h3>
+		&nbsp;&nbsp;&nbsp;var imgArr = ['../images/charmander.png', 
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		... ,'../images/bullbasaur.png'];
+		<br>&nbsp;&nbsp;&nbsp;Math.floor(Math.random()*$(imgArr).length);
+		<br>&nbsp;&nbsp;&nbsp;img src = imgArr[ranNum]
+		<br>
+		<h3>enter key press event</h3>
+		$(document).keypress(function(e) {<br>
+		&nbsp;&nbsp;&nbsp;if(e.which == 13) {<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(===이벤트 내용 들어갈 자리===)<br>
+		&nbsp;&nbsp;&nbsp;}<br>
+		});<br>
+	</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+	
+		$(function(){
+			$('form :disabled').css('border','2px solid red');
+			
+		})
+	
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<form action = "test.jsp" method="post"> 
+		
+		<input type="button" name="disButton" value="Input Button" disabled><br>
+		<input type="checkbox" name="enCheckbox" >체크<br>
+		<input type="file" name="disFile"  ><br>
+		<input type="hidden" name="enHidden"  value=""> <br>
+		<input type="image" src="../images/image.1.jpg" alt="Submit"><br>
+		<input type="password"  value="1111" name="enPassword" disabled > <br>
+		<input type="radio" name="disRadio"  value="남" disabled> 남<br>
+		<input type="reset" name="enReset" value="취소"><br>
+		<input type="submit" name="disSubmit" value="제출"> <br>
+		<input type="text" name="enText" value="input text"  > <br>
+		<select name="disSelect" >
+			<option>Option1</option>
+			<option>Option2</option>
+			<option>Option3</option>
+			<option>Option4</option>
+			<option>Option5</option>
+		</select>
+		<br>
+		<textarea name="enTextarea" rows=10 cols=20 >text</textarea><br>
+		<button name="disButton2" >Button</button><br>
+		<button id="aa" type="button">버튼</button>
+		<!--<button name="disButton2" onclick="javascript:alert('aaaaa');"> -->
+	</form>
+	
+
+<br><hr><br>
+
+
+	<div id="divSum">
+	상태필터<br>
+		<br>입력양식의  현재 상태에 따라 선택되어진다 <br>
+		:enabled<br>
+		&nbsp;&nbsp;&nbsp;현재 enable상태인 모든 요소와 일치<br>
+		:disabled<br>
+		&nbsp;&nbsp;&nbsp;현재 disable상태인 모든 요소와 일치<br>
+		:checked<br>
+		&nbsp;&nbsp;&nbsp;체크된 모든 요소들과 일치<br>
+		:selected<br>
+		&nbsp;&nbsp;&nbsp;선택된 모든 요소들과 일치<br>
+		<br><br>$("form :enabled").css("border", "3px solid #66ff00");
+	<br>$("form :disabled").css("border", "3px solid blue"); 
+		
+
+	
+	</div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.js">
+</script>
+<script>
+	$(function(){
+		$('button').hide();
+		$('h1').on('click',function(){
+			//$(this).hide();
+			$(this).css('display','none');
+			if($('h1:visible').length==0){
+				$('button').show();
+			}
+		})
+		$('button').on('click',function(){
+			$('h1').show();
+			$('button').hide();
+		})
+	})
+</script>
+<style>
+	h1:hover{
+		background: linen;
+		color: tomato;
+	}
+	button{
+		/* display:none; */ 
+		background: transparent;
+		color:tomato;
+		border-color: tomato; 
+	}
+	div{
+		border: 2px solid grey;
+		width: 500px; 
+		margin: 10px;
+		padding: 10px;
+		font-size: 20px;
+	}
+</style>
+
+</head>
+<body>
+
+	<h1>클릭하면 사라집니다.(1)</h1>
+	<h1>클릭하면 사라집니다.(2)</h1>
+	<h1>클릭하면 사라집니다.(3)</h1>
+	<h1>클릭하면 사라집니다.(4)</h1>
+	<h1>클릭하면 사라집니다.(5)</h1>
+	<h1>클릭하면 사라집니다.(6)</h1>
+	<h1>클릭하면 사라집니다.(7)</h1>
+	<h1>클릭하면 사라집니다.(8)</h1>
+	<h1>클릭하면 사라집니다.(9)</h1>
+	<h1>클릭하면 사라집니다.(10)</h1>
+	
+	<button>보이기</button>
+	<div>
+		제이쿼리에서 this 객체화하려면 $()안에 this를 적는다 
+		<br>&nbsp;&nbsp;&nbsp;-> $(this)
+		<br>onclick 이벤트 주고싶을 때:
+		<br>&nbsp;&nbsp;&nbsp;$('h1').on('click',function(){})
+		
+		<br>숨길때:
+		<br>&nbsp;&nbsp;&nbsp;$(this).hide();
+		<br>보이게할때:
+		<br>&nbsp;&nbsp;&nbsp;$(this).show();
+		<br>if문 예(보이는 h1의 요소들이 0개인지? 라는 조건):
+		<br>&nbsp;&nbsp;&nbsp;if($('h1:visible').length==0){}
+	</div>
+	
+<!-- <h1 onclick="aa">클릭하면 사라집니다.(1)</h1> -->
+</body>
+</html>

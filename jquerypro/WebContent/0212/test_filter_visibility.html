@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			//body안에 hidden요소의 갯수
+			//alert('body안에 hidden요소의 갯수?? '+$('body :hidden').length);
+			//alert('body안에 visible요소의 갯수?? '+$('body :visible').length);
+			
+			//hidden속성의 태그와 문자를 가져온다.
+			result="";
+			$('body :visible').each(function(i){
+				result+="태그이름: "+this.tagName+"\n내용: " + $(this).html()+"\n";
+				
+			})
+			alert(result);
+		})
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	
+
+	<p> <a>보이는 문단</a></p>
+	<p style="visibility:hidden;"><span>숨겨진 문단</span></p>
+	<p style="display:none;"> <span>자리를 차지 하지 못한 문단 </span></p>
+	<p style="opacity:0;"> 투명한 문단</p>
+
+
+	<hr/>
+	<br><hr><br>
+	
+	<div id="divSum">
+		<h3 style="text-align:center;">기타필터</h3>
+		<h3>Visibility 필터 : 보임 상태에 따라 엘리먼트를 선택</h3> 
+		
+		<h4>:hidden</h4>
+		<b>hidden 상태인 모든 요소들</b><br>
+		1. display:none;<br>
+		2. type="hidden";<br>
+		3. width:0; height:0;<br>
+		4. 부모 Element가 hidden<br>
+		5. visibility:hidden 와 opacity:0 은 보이는 것으로 간주<br>
+		<br>
+		<h4>:visible</h4>
+		<b>visible 상태인 모든 요소들</b><br>
+		1. display:none; 이 아닌것
+		2. type="hidden" 아닌 것
+		3. width:0; height:0 아닌것 
+		4. 부모 Element가 hidden 아닌것
+	</div>
+ 
+</body>
+</html>

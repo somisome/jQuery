@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			
+			$('#hibut').on('click',function(){
+				result="hidden의 결과 \n\n";
+				$('form :hidden').each(function(i){
+					if(this.tagName=='INPUT'){
+						result+=this.tagName+"의 hidden객체  ["+$(this).attr('name')+" : "+$(this).val()+']\n';
+					}else if(this.tagName=='SPAN'){
+						result+=$(this).text()+"\n";
+					}
+				})
+				alert(result);
+			})				
+			
+			$('#vibut').on('click',function(){
+				result="visible의 결과 \n\n";
+				$('form :visible').each(function(i){
+					if(this.tagName=='INPUT'){
+						result+=this.tagName+"의 visible객체  ["+$(this).attr('name')+" : "+$(this).val()+']\n';
+					}else if(this.tagName=='SPAN'){
+						result+=$(this).text()+"\n";
+					}
+				})
+				alert(result);
+			})				
+			
+		})
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<form id="testForm"> 
+		<input type="hidden" name="userAge" value="33">    
+		<input type="hidden" name="userCity" value="대전">  
+		I D : <input type="text" name="userID" value="hong">  
+		<span style="display:none">ID가 중복됩니다. </span> <br>  
+		이름 : <input type="text" name="userName" value="홍길동">  
+		<span style="visibility:hidden">이름을 입력하세요</span><br>  
+		성별 : <input type="radio" name="sung" value="남" checked>남자 
+		<input type="radio" name="sung" value="여">여자 
+		<input type="button" id="vibut" value="보이는거">
+		<input type="button" id="hibut" value="안보이는거">
+	</form>
+	
+
+
+	<div id="divSum">
+		<h3>hidden visible</h3>
+	
+	</div>
+
+
+
+
+
+</body>
+</html>

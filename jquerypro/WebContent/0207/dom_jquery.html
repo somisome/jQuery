@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>DOM_JQuery</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			var jq_h1=$('h1');
+			//jquery객체를 dom 객체로 변환
+			var jqdom = jq_h1.get(2);
+			jqdom.style.background = 'linen';
+			
+			jqdom = jq_h1[4];
+			jqdom.style.background = 'pink';
+			
+			var dom_h1=document.getElementsByTagName("h1")[0];
+			
+			$(jq_h1).css('color','sienna');
+			// dom객체로 css메소드를 호출불가
+			//dom_h1.css('color','forestgreen');
+			dom_h1.style.color='forestgreen';
+			
+			//dom객체를 jquery객체로 변환
+			$(dom_h1).css('font-size','5.0em');
+			
+			
+		})
+	
+	
+	
+	
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 500px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	
+	<h1>무궁화 꽃</h1>
+	<h1>무궁화 꽃</h1>
+	<h1>무궁화 꽃</h1>
+	<h1>무궁화 꽃</h1>
+	<h1>무궁화 꽃</h1>
+
+	
+	<div id="divSum">
+		<h3>DOM - JQuery</h3>
+		jquery: <br>var jq_h1=$('h1');
+		<br>script:<br>var dom_h1=document.getElementsByTagName("h1")[0];
+		<br>$(jq_h1).css('color','sienna');
+		<br>
+		<br><h3>dom객체로 css메소드를 호출불가</h3>
+		-> 오류남 -> dom_h1.css('color','forestgreen');
+		<br>-> 오류안남 -> dom_h1.style.color='forestgreen';
+		<br>
+		<br><h3>dom객체를 jquery객체로 변환</h3>
+		$(dom_h1).css('font-size','5.0em');
+		<br>
+		<br><h3>jquery객체를 dom객체로 변환(get함수)</h3>
+		jquery객체 jq_h1: 
+		<br>&nbsp;&nbsp;&nbsp;var jq_h1=$('h1');
+		<br>jq_h1을 dom객체로 변환한 jqdom: 
+		<br>&nbsp;&nbsp;&nbsp;var jqdom = jq_h1.get(2);
+		<br>jqdom 활용
+		<br>&nbsp;&nbsp;&nbsp;jqdom.style.background = 'linen';
+	</div>
+
+
+
+
+
+</body>
+</html>

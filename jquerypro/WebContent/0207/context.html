@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			$('p').css('color','sienna');
+			$('p',document.forms[2]).css('font-size','2.0em');
+			$('div').on('click',function(){
+				$('p',this).css('color','forestgreen');
+			})
+		})
+	
+	
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 500px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+	
+
+</head>
+<body>
+	<h2>Hello!!</h2>
+	
+	<form>
+		<p>Hello_! p1</p>
+		<div id="d1"><p>HELLO_!! div1</p></div>
+	</form>
+	
+	<form>
+		<p>Hello_! p2</p>
+		<div id="d2"><p>HELLO_!! div2</p></div>
+	</form>
+	
+	<form>
+		<p>Hello_! p3</p>
+		<div id="d3"><p>HELLO_!! div3</p></div>
+	</form>
+	
+	<form>
+		<p>Hello_! p4</p>
+	</form>
+	
+	<div id="divSum">
+		<h3>$(선택자,[컨텍스트])</h3>
+		컨텍스트는 써도 안써도 상관은 없다.<br>
+		썼을 경우는 선택자로 작업대상 엘리먼트를 검색<br>
+		선택된 엘리먼트는 jQuery객체에 저장되며<br> 
+		이후 메서드를 호출하여 검색된 엘리먼트에 여러가지 조작을 가할 수 있다<br> 
+		<br>
+		$('p',this).css('color','forestgreen');<br>
+		this는 'p'를 기준으로 부모이므로<br>
+		p태그가 div에 감싸져 있을 때에는 div 의미함<br>
+	</div>
+	
+</body>
+</html>

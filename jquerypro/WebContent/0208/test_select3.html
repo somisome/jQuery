@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>selector3</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			$('a').css('color','brown');
+			//1
+			$('span').css('border','2px solid grey').css('color','tomato').css('font-size','1.5em');
+			$('p').css('border','2px solid pink').css('width','400px');
+			
+			$('input[type=button]').css('background','sienna').css('color','white').css('margin-left','10px');
+			
+			$('div~span').css('background','linen');
+			$('div~b').css('border','2px solid sienna');
+			$('div#list').css('border','2px solid orange').css('font-size','30px').css('width','450px');		
+			//$('span>a').css('text-decoration','overline');
+			$('span>a').css('text-decoration','line-through');
+		
+			
+			
+			
+			/* 
+			//id가 list인 요소의 테두리지정 2px solid orange, 글자크기 30px ,가로 길이지정 
+			$('div#list').css('border','2px solid orange').css('font-size','30px').css('width','450px');
+			//p요소의 테두리 2px solid red 변경
+			$('p').css('border','2px solid red');		
+			//span 요소의 배경색 핑크, 글자색 레드  
+			$('span').css('background','pink').css('color','red');
+			//span 요소의 후손  a 요소 overline   
+			$('span>a').css('text-decoration','overline');	
+			//class가 detail 요소의 글자색을 blue
+			$('.detail').css('color','blue');		
+			// div의 다음의 모든  형제인 span 요소의 배경색 lightgreen
+			$('div~span').css('background','lightgreen');		
+			//div 의 자식인 span 요소의 테두리 1px solid red
+			$('div>span').css('border','1px solid red');			
+			//div 형제인 모든 b 요소의 테두리 2px solid blue 
+			$('div~b').css('border','2px solid blue');
+			 */
+		})
+	
+	
+	
+	
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+			
+		}
+	</style>
+</head>
+<body>
+	<div>
+	
+		<span>It교육의 요람 
+			<a href="http://www.ddit.or.kr">(재)대덕인재개발원</a>
+			 으로 오세요
+		 </span><br>
+		 
+		<a href="mailto:power2c@ddit.or.kr">빠워에게 메일보내기</a>
+		
+		<p>
+			RIA기술 : 
+			<input type="checkbox" name="ria" value="플렉스"/>플렉스
+			<input type="checkbox" name="ria" value="실버라이트"/>실버라이트
+			<input type="checkbox" name="ria" value="HTML5"/>HTML5<br>
+			성 별 : 
+			<input type="radio" name="gender" value="남자"/>남자
+			<input type="radio" name="gender" value="여자"/>여자<br>
+			<input type="button" value="클릭~"/><br>
+		</p>
+		
+		
+		<div id="list">selector의 종류들입니다.</div>
+		
+		<b>엘리먼트 : </b>
+		
+		<span class="detail">
+			<b>태그명, ID속성값, CLASS속성값 이용</b>
+		</span><br><br>
+		
+		<b>속성 : </b>
+		
+		<span class="detail">각 요소에 설정된 속성명과 속성값을 이용</span><br><br>
+		
+		<b>form : </b>
+		
+		<span>input, select, textarea등의 특성을 이용</span>
+	
+	</div>
+	
+
+
+
+
+	<br><br><br><br>
+
+	<div>
+		<span>1
+			<a>11</a>
+		</span><br>
+		<a>2</a><br>
+		<p>3</p><br>
+		<div id="list">4</div><br>
+		<b>5</b>
+		<span>6
+			<b>12</b>
+		</span><br>
+		<b>7</b>
+		<span>8</span><br>
+		<b>9</b>
+		<span>10</span>
+		
+	</div>
+
+
+
+	<div id="divSum">
+		$('div>span') :  div의 모든 자식 span 요소 - 1(11), 6,8,10<br>
+		$('div+b') : div 바로 다음 형제 b 요소 – 5<br>
+		$('div~b'); div의 모든 형제중  b – 5 7 9 <br>
+		<br>
+		**ppt p.30~39 참고
+	</div>
+
+
+
+
+
+</body>
+</html>

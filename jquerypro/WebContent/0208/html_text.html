@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			//alert($('body').html());
+			//alert($('body').text());
+			//alert($('p').text());
+			//alert($('p').html()); //첫번째 하나만 가져옴
+			
+			//'p'의 html 다 가져오고 싶을때
+			//str="";
+			//$.each($('p'),function(i){
+				//str+=$('p').html();//첫번째것만 반복해서 나오게 됨
+				//str+=$(this).html();//그래서 this로 적어줘야 함
+			//})
+			//alert(str);
+			
+			str="";
+			$('p').each(function(i){
+				str+=$(this).html()+"\n";
+			})
+			alert(str);
+		})
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 500px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<p>1<a>홍길동</a></p>
+ 	<p>2<a>개나리</a></p>
+  	<p>3<a>진달래</a></p>
+
+	<div id="divSum">
+		
+		
+		<h2>title값을 이미지명에서 가져오기</h2>
+		'title':function(){} <br>
+		function부분에서 title에 어떤값줄지 정함<br>
+		<br> 
+		<h3>이미지 주소 가져오기 </h3>
+		str=$('img').attr('src');<br>
+		여기에서는 함수안에서 이미지를 this로 가리킴<br>
+		str=$(this).attr('src');
+		<h3>title로 쓸 문자열만 자르기</h3>
+		str에 이미지 주소가 문자열로 담기면<br>
+		'/'과 '.'의 위치를 lastIndexOf로 가져옴<br>
+		a=src.lastIndexOf('/')<br>
+		b=src.lastIndexOf('.')<br>
+		title = str.substring(a+1, b)<br>
+		return title; 로 주고싶은 값을 반환<br>
+		<br>
+		**substring(x,y):x에서 y-1까지의 문자를 가져옴
+		
+		<br>
+		<h2>.size()와 .length()</h2>
+		alert($("p").size()); : p엘리먼트의 개수<br>
+		alert($("p").length); : p엘리먼트의 개수 <br>
+		
+		
+		<br>
+		<h2>.text()와 .html()</h2>
+		<h3>.text(): 태그안의 모든 문자</h3>
+		<h3>.html(): 모든 태그 포함</h3>
+		alert($("body").html());<br>  
+		body 태그 안의 모든 태그를 포함한 문장<br> 
+		alert($("body").text());<br>
+		body 태그안의 모든 문자만<br>
+		alert($("p").text());<br>
+		여러개인경우 모든 p태그의 문자만<br>  
+		alert($("p").html());<br>
+		p가  여러개인경우  첫번째 인거만 태그를 포함한 문장 <br>
+		
+
+		
+		<br>
+		<h2>each(fn)와 $.each()</h2>
+		$("p").each(function(매개변수1, 매개변수2){…});<br>
+		$.each("p", function(매개변수1, 매개변수2){…});<br>
+		str="";<br>
+		$.each($('p'),function(i){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str+=$('p').html();//첫번째것만 반복해서 나오게 됨<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str+=$(this).html();//그래서 this로 적어줘야 함<br>
+		})<br>
+		$('p').each(function(i){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str+=$(this).html()+"\n";<br>
+		})<br>
+		
+		
+		
+
+	</div>
+
+</body>
+</html>

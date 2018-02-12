@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>170206</title>
+<style>
+div{
+		border: 2px solid grey;
+		width: 700px; 
+		margin: 10px;
+		padding: 10px;
+		font-size: 20px;
+	}
+</style>	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	
+
+$(function(){
+	//var pp = $('p');
+	//pp.css('color','pink');
+	
+	$('p').css('color','pink'); //method chaining
+	$('p:eq(3)').css('color','forestgreen');
+/* 	pp = document.getElementsByTagName('p');
+	pp[1].style.color = 'lightpink';
+	pp[2].style.color = 'pink';
+	pp[3].style.color = 'hotpink';
+	pp[4].style.color = 'tomato'; */
+	
+	
+})  
+</script>
+</head>
+<body>
+	<div>
+		1.jQuery라이브러리 사용하는 방법 2<br>
+		&nbsp;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"<br>
+		&nbsp;웹 상의 경로를 사용하여 js파일을 부른다.<br><br>
+		2.method chaining<br>
+		&nbsp;var pp = $('p');<br>
+		&nbsp;pp.css('color','pink');<br>
+		위의 두 줄을 한줄로 표현가능<br>
+		&nbsp;-> $('p').css('color','pink');<br><br>
+		3.p태그가 걸려있는 문장 중 특정 문장만 스타일을 바꾸고 싶을 때<br>
+		&nbsp;$('p:eq(3)').css('color','forestgreen');<br>
+		&nbsp;처럼 $('p:eq(3)')로 표현한다. (3)이 인덱스를 특정지어주는 파트<br><br>
+		javascript에서는 다음과 같이 표현함<br>
+ 		&nbsp;pp = document.getElementsByTagName('p');<br>
+		&nbsp;pp[1].style.color = 'lightpink';<br>
+		&nbsp;pp[2].style.color = 'pink';<br>
+		&nbsp;pp[3].style.color = 'hotpink';<br>
+		&nbsp;pp[4].style.color = 'tomato';<br>
+	</div>
+
+
+	<p>무궁화 꽃이 피었습니다(1)</p>
+	<p>무궁화 꽃이 피었습니다(2)</p>
+	<p>무궁화 꽃이 피었습니다(3)</p>
+	<p>무궁화 꽃이 피었습니다(4)</p>
+	<p>무궁화 꽃이 피었습니다(5)</p>
+	<p>무궁화 꽃이 피었습니다(6)</p>
+	<p>무궁화 꽃이 피었습니다(7)</p>
+	<p>무궁화 꽃이 피었습니다(8)</p>
+	<p>무궁화 꽃이 피었습니다(9)</p>
+	<p>무궁화 꽃이 피었습니다(10)</p>
+</body>
+</html>

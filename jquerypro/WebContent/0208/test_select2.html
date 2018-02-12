@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>selector2</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			//h3 다음의 모든 형제의 배경색을 변경, 길이지정, 가운데정렬
+			$('h3~p').css('background','linen').css('width','200px').css('height','50px').css('text-align','center');
+			
+	        //h3 다음의 첫번째 형제의 글자를 굵게 : font-weight 
+			$('h3+p').css('font-weight','bold').css('font-size','30px');
+			
+		})
+	
+	
+	
+	
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	 <p>형제 선택자 에 대하여</p>
+ <h3> 텔레토비 가족을 소개 합니다</h3>
+ <p> 보라돌이</p>
+ <p> 뚜비</p>
+ <p> 나나 </p>
+ <p>뽀~ </p>
+
+
+
+	<div id="divSum">
+		<h4>h3 다음의 모든 형제의 배경색을 변경, 길이지정, 가운데정렬</h4>
+		$('h3~p').css('background','linen').css('width','200px').css('text-align','center');<br>
+		<br>
+        <h4>h3 다음의 첫번째 형제의 글자를 굵게 : font-weight</h4>
+		$('h3+p').css('font-weight','bold').css('font-size','30px');<br>
+
+	</div>
+
+
+
+
+
+</body>
+</html>

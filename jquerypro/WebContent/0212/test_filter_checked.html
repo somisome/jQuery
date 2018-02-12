@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			//$('input[type=button]').on('click',function(){});
+			$(':button').on('click',function(){
+				//$('input[type=checkbox]') 모든 체크박스를 선택하는 것
+				//$(':checkbox') 역시 모든 체크박스를 선택하는 것				
+				//$(':checkbox :checked') 사이에 띄어쓰기하면 checkbox중 자식만 선택한다는 뜻				
+				result="";
+				//모든 checkbox선택하고 checked필터 이용
+				$(':checkbox:checked').each(function(i){
+					if(i>0) result +=", ";
+					result+=$(this).val();
+				})
+				
+				
+				result+='이다 :D';
+				alert(result);
+			});
+			
+		})
+	
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<form>
+	취 미 :
+		<input type="checkbox" name="hobby" value="여행" checked >여행
+		<input type="checkbox" name="hobby" value="장기">장기
+		<input type="checkbox" name="hobby" value="바둑">바둑
+		<input type="checkbox" name="hobby" value="독서" >독서
+		<input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+		<input type="button" value="전송">
+	</form>
+	
+
+<br><hr><br>
+	<div id="divSum">
+		<h3>상태필터 checkbox:checked</h3>
+		
+		$('input[type=checkbox]')<br> 
+		&nbsp;&nbsp;&nbsp;모든 체크박스를 선택하는 것<br>
+		$(':checkbox') <br>
+		&nbsp;&nbsp;&nbsp;역시 모든 체크박스를 선택하는 것<br>				
+		$(':checkbox :checked') <br>
+		&nbsp;&nbsp;&nbsp;사이에 띄어쓰기하면 checkbox중 자식만 선택한다는 뜻<br>				
+		$(':checkbox:checked')<br>
+		&nbsp;&nbsp;&nbsp;모든 checkbox선택하고 checked필터 이용<br>
+		<br>
+		<h4>for문과 함께 사용하는 예</h4>
+		$(':checkbox:checked').each(function(i){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(i>0) result +=", ";<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result+=$(this).val();<br>
+		})<br>
+		
+		
+	
+	</div>
+
+
+
+
+
+</body>
+</html>

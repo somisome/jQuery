@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>filter_자식필터</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			$('li:first').css('background','linen');
+			$('li:first-child').css('border','solid 2px tomato');
+		})
+	</script>
+	<style>
+		li{
+			width:150px;
+		}
+		div{
+			padding:30px;
+			width:250px;
+			height:250px;
+			background:azure;
+			border:dotted 3px lightblue;
+		}
+		#divSum{
+			border: 2px solid grey;
+			width: 700px;
+			height:700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h4>여자에게 인기있는 남자들</h4>
+		<ol>
+			<li>능력있는 남자</li>
+			<li>돈 많은 남자</li>
+			<li>잘 생긴 남자</li>
+			<li>프로그래머</li>
+		</ol>
+	</div>
+	<br>
+	<div>
+		<h4>남자에게 인기있는 여자들</h4>
+		<ol>
+			<li>예쁜 여자</li>
+			<li>귀여운 여자</li>
+			<li>섹시한 여자</li>
+		</ol>
+	</div>
+
+
+<br>
+<hr>
+<br>
+	<div id="divSum">
+		<h3>선택자 - 필터</h3>
+		<h3>자식필터</h3>
+		요소를 자식으로 갖는 부모의 그룹안에서 해당자식을 찾는다.<br>
+		$("td:first-child") : td를 자식으로 하는 tr그룹에서 첫번째 자식<br>
+		:ntn-child(index/even/odd/equation)<br>
+		자식중 index로 지정된 위치의 요소들과 일치되거나,even(짝수),odd(홀수)번재에 해당하는 자식들과 일치(단, index는 1부터 시작.)<br>
+		:first-child<br>
+		첫번째 자식인 모든 요소와 일치<br>
+		:last-child<br>
+		마지막 자식인 모든 요소와 일치<br>
+		:only-child<br>
+		자신이 부모 요소의 유일한 자식인 모든요소와 일치<br>
+	</div>
+
+
+
+
+
+</body>
+</html>

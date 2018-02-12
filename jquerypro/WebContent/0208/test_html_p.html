@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+	$(function(){
+		str="";
+		$('p').each(function(i){
+			str+=i+"번째: "+$(this).html()+"\n";
+		})
+		alert(str);
+	})
+	
+	
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 500px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<p>123<a>첫번째</a></p> 
+	<div> <p>두번째</p> </div> 
+	<div> <p>세번째</p><p>네번째</p> </div> 
+
+
+	<div id="divSum">
+		<h3>.html() .text() 활용</h3>
+		$(function(){<br>
+		&nbsp;&nbsp;&nbsp;str="";<br>
+		&nbsp;&nbsp;&nbsp;$('p').each(function(i){ ←i는 안써도 됨. function()<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str+=$(this).html()+"\n";<br>
+		&nbsp;&nbsp;&nbsp;})<br>
+		&nbsp;&nbsp;&nbsp;alert(str);<br>
+		})<br>
+	</div>
+
+
+
+
+</body>
+</html>
+
+
+
+
+

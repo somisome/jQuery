@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>내용필터</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			//jQuery가 포함된 span태그 의 테두리 파랑      
+			//:contains(text)  2px 
+			$('span:contains(jQuery)').css('border','solid 2px blue');
+		
+			//jQuery가 포함되지 않은  span 태그 의 테두리 빨강  
+			//:not(:conains(text)) 1px 
+			$('span:not(:contains(jQuery))').css('border','solid 2px red');
+			
+			//span을 갖는 div요소 태그 의 테두리   그린   :has(span) 5px 
+			$('div:has(span)').css('border','solid 5px green');
+			
+			//아무것도 없는 빈 div 태그 의 테두리      :empty       -orange
+			$('div:empty').css('border','solid 5px orange');
+			
+			//div 후손 span 태그 의 글자색  빨강, 크기,굵게             div span
+			$('div span').css({'color':'red','font-weight':'bold','font-size':'20px'});
+			
+			//비어있는 div에 h1태그로 Hello를 표시
+			//$('div:empty').html('<h1>Hello~~~</h1>');
+			$('div:empty').text('<h1>Hello~~~</h1>');
+			$('div#dd').html("<h1>Hello~~~</h1>");
+			
+			
+			
+			
+			
+		})	
+			
+	
+	
+	
+	</script>
+	<style>
+		*{margin:5px;}
+        div{ width:300px; height:30px; 
+             border:1px solid green; 
+             }
+		#dd{
+			width:800px; height:130px; 
+            border:1px solid green;
+		}
+		#divSum{
+			border: 2px solid grey;
+			width: 700px;
+			height: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div>
+		헬로우~~
+		<span>오늘도  즐겁게~열심히!</span>
+	</div>
+	<p>Hello jQuery! 
+		<span>Thanks, jQuery!</span>
+	</p>
+	<div class="myClass">
+		jQuery!
+	</div>
+	<span class="notMyClass">
+		쉬운 jQuery~~!
+	</span>
+	<div></div>
+	<br>
+	<br>
+	<hr color="blue">
+	<br>
+	<div id='dd'></div>
+	
+	
+	<br>
+	<br>
+	<hr>
+	<br>
+	<br>
+
+
+
+
+	
+
+	<div id="divSum">
+		<h3>선택자 - 필터</h3>
+		<h3>내용필터1</h3>
+		포함된 내용에 따라 특정 항목을 가진 엘리먼트만 추려낸다.<br>
+		SPAN:NOT(:CONTAINS(TEXT))<br>
+		:contains(text)<br>
+		지정한 텍스트를 포함하는 요소들(대소문자구분, 자식요소의 텍스트까지 검색)<br>
+		:empty<br>
+		대상 요소 중 자식요소가 없고 텍스트도 가지지않는 요소들<br>
+		:has(selector)<br>
+		지정된 셀렉터에 해당하는 요소를 갖는 모든 요소들과 일치<br>
+		<br>
+		:parent<br>
+		대상요소중 자식요소를 갖거나 텍스트를 갖는 요소들이 이에 해당됨
+	</div>
+
+
+
+
+
+</body>
+</html>

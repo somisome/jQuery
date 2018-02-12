@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>기본필터</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			//$('table').css('border','solid 1px grey');
+			$('td').css({'width':'100px','height':'30px','text-align':'center'});
+			$('tr:even').css('background','lightblue');
+			$('tr:odd').css('background','linen');
+			$('tr:first').css({'background':'grey','color':'white','width':'100px','height':'30px'})
+			//$('th').css({'background':'grey','color':'white','width':'100px','height':'30px'})
+		})	
+	</script>
+	<style>
+		*{ margin:10px;}
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>이름</th>
+			<th>주소</th>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>대전</td>
+		</tr>
+		<tr>
+			<td>진달래</td>
+			<td>서울</td>
+		</tr>
+		<tr>
+			<td>개나리</td>
+			<td>부산</td>
+		</tr>
+		<tr>
+			<td>무궁화</td>
+			<td>대구</td>
+		</tr>
+	
+	
+	</table>
+	<br>
+	<hr>
+	<br>
+
+	<table>
+
+		<tr>
+			<td>one</td>
+			<td>62만원</td>
+		</tr>
+		<tr>
+			<td>two</td>
+			<td>45만원</td>
+		</tr>
+		<tr>
+			<td>three</td>
+			<td>33만원</td>
+		</tr>
+		<tr>
+			<td>four</td>
+			<td>72만원</td>
+		</tr>
+		<tr>
+			<td>five</td>
+			<td>77만원</td>
+		</tr>
+		<tr>
+			<td>six</td>
+			<td>54만원</td>
+		</tr>
+		<tr>
+			<td>seven</td>
+			<td>61만원</td>
+		</tr>
+		<tr>
+			<td>eight</td>
+			<td>52만원</td>
+		</tr>
+		<tr>
+			<td>nine</td>
+			<td>88만원</td>
+		</tr>
+	</table>
+
+
+	<br>
+	<br>
+	<hr>
+	<br>
+	<div id="divSum">
+		<h3>선택자 - 필터</h3>
+		<h3>기본필터</h3>
+		:first<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;선택된 개체들 중 첫번째 요소와 일치<br>
+		:last<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;선택된 개체들 중 마지막 요소와 일치<br>
+		:not(selector)<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;괄호에 주어진 셀렉터와 일치되는 모든 요소를 제외<br>
+		:even<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;짝수요소들과 일치(0부터 시작)<br>
+		:odd<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;홀수요소들과 일치(0부터 시작)<br>
+		:eq(index)<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;인덱스에 해당하는 단일 요소와 일치<br>
+		:gt(index)<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;주어진 인덱스보다 큰 인덱스를 갖는 모든 요소<br>
+		:lt(index)<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;주어진 인덱스보다 작은 인덱스를 갖는 모든 요소<br>
+		:header<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;모든 헤더 요소들(h1,h2,h3등)과 일치<br>
+		:animated<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;현재 애니메이션이 동작중인 모든 요소와 일치<br>
+	</div>
+
+
+
+
+
+</body>
+</html>

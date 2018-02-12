@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>필터</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			$('li').css('width','30%');
+			$('li:lt(4)').css({'font-size':'20px','font-weight':'bold'});
+			$('li:first,li:last').css('background','yellow');
+			$('li:eq(5)').css('background','red');
+		})
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>one </li>
+		<li>two </li>
+		<li>three </li>
+		<li>four </li>
+		<li>five </li>
+		<li>six</li>
+		<li>seven</li>
+		<li>eight</li>
+		<li>nine</li>
+	</ul>
+	
+
+	<br>
+	<br>
+	<hr>
+	<br>
+
+
+	<div id="divSum">
+	<h3>Filter</h3>
+	1. 기본 필터<br>
+	2. 자식필터<br>
+	3. 내용필터<br>
+	4. 입력상태필터<br>
+	5. 기타필터<br>
+	<br>
+	기본 선택자보다 더 정밀한 선택이 필요한 경우 필터와 선택 메소드를 활용<br>
+	선택자 뒤의 콜론다음에 기술하여  “선택자:필터” 식으로 사용<br>
+	<br>
+	선택자로 기준 엘리먼트를 먼저 찾고<br>
+	필터는 이 엘리먼트 주변의 다른  엘리먼트나 선택된 집합중의 일부를  더 정밀하게 선택하는 역할<br>
+
+	
+	</div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		var jq = $.noConflict();  //$대신 jq를 쓸 수 있게 됨
+		
+/* 		jq(function(){
+			//버튼을 클릭하면 div에 border를 그려라
+			jq('button').on('click',function(){
+				jq('div').css('width','200px')
+						.css('height','100px')
+						.css('border','solid 1px black');
+			})
+			
+			
+		}) */
+		
+		jq(function(){
+			
+			jq('button').on('click',function(){
+				jq('div').css('width','500px')
+				.css('height','400px')
+				.css('border','solid 1px black');
+			})
+			
+		})
+		//function($) 붙인 범위 안에서는 다시 $기호 사용 가능
+		jq(function($){
+			$('div').on('click', function(){ 
+				$(this).css('background','linen');
+			})
+		})
+		
+	
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 500px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<button type="button">클릭</button>
+	<br>
+	<div>
+	
+	</div>		
+	
+	<div id="divSum">
+	<h3>noConflict()</h3>
+	jquery의 별칭인 $()을 다른 문자로 대체<br>	
+	var jq = $.noConflict();  //$대신 jq를 쓸 수 있게 됨<br><br>
+	
+	- function($) 붙인 범위 안에서는 다시 $기호 사용 가능<br>
+	jq('div').on('click', function($){<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(this).css('background','linen');<br>
+	})<br>
+	</div>
+
+
+
+
+
+</body>
+</html>

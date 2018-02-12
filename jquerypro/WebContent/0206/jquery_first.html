@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery_1st_180206</title>
+<style>
+div{
+		border: 2px solid grey;
+		width: 500px; 
+		margin: 10px;
+		padding: 10px;
+		font-size: 20px;
+	}
+</style>	
+<script src="../js/jquery-3.3.1.js"></script>
+<script>
+/*callback 함수*/
+	$(function(){ //document.onready=function()
+		$('#but').on('click',function(){
+			$('#pp').css('color','pink');
+		})
+	})
+</script>
+
+</head>
+<body>
+	<div>
+		1.jQuery라이브러리 사용하는 방법 - 다운로드 <br>
+			script src="../js/jquery-3.3.1.js" 다운로드한 파일이 있는 경로를 사용하여 js파일을 부른다.<br>
+		2.callback함수 쓰기<br>
+	&nbsp;$(function(){ //document.onready=function()<br>
+		&nbsp;&nbsp;$('#but').on('click',function(){<br>
+			&nbsp;&nbsp;&nbsp;$('#pp').css('color','pink');<br>
+		&nbsp;&nbsp;})<br>
+	&nbsp;})<br>
+	
+	</div>
+
+
+	<p id = "pp">jQuery_first! :D</p>
+	<input id = "but" type="button" value ="클릭">
+	
+
+	
+	
+	
+	
+	
+</body>
+</html>

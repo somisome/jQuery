@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+	
+		$(function(){
+			result="";
+			//$('select[name=spring]')
+			$('#spring').on('change',function(){
+				result="";
+				$('option:selected').each(function(i){
+					if(i>0) result+=",";
+					result+=$(this).val();
+					$(this).css('border','pink solid 2px');
+				})
+				alert(result);
+			});
+		})
+	
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		봄소식 : 
+		<select name="spring" id="spring" multiple size="6">
+			<option  >개나리</option>
+			<option selected>진달래</option>
+			<option>민들레</option>
+			<option selected>벚꽃</option>
+			<option>목련</option>
+			<option>철쭉</option>
+		</select>
+	</form>
+	
+
+<br><hr><br>
+	<div id="divSum">
+		<h3>필터 option:selected</h3>
+			$('select[name=spring]') <br>
+			&nbsp;&nbsp;&nbsp;name으로 선택<br>
+			$('#spring') <br>
+			&nbsp;&nbsp;&nbsp;id로 선택<br>
+		
+			
+	</div>
+
+
+
+
+
+</body>
+</html>

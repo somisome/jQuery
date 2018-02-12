@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Image Appaned</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		//title이라는 속성값을 얻어온다 - attr()
+	
+		$(function(){
+			$('p').on('click',function(){
+				var titleValue = $(this).attr('title');
+				//alert(titleValue);
+				$('<img/>',{
+					'width':'100px',
+					'src':'../images/'+titleValue+'.jpg',
+				}).appendTo(this)
+			})
+		})
+	
+	
+	
+	
+	</script>
+	<style>
+		p{
+			color: sienna;
+			font-size: 20px;
+			border : solid 2px;
+			border-color : sienna;
+			background-color: linen;
+			padding:5px;
+			margin:5px;
+		}
+	
+		#divSum{
+			border: 2px solid grey;
+			width: 500px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<p title ="Tulips">튜울립
+	<p title ="Koala">코알라
+	<p title ="Chrysanthemum">국화
+	<p title ="Hydrangeas">수국
+	<p title ="Penguins">펭귄
+	
+	
+	<div id="divSum">
+		<h3>Image Append</h3>
+		
+		<h4>속성값 얻기 - attr()</h4>
+		attr('title') : title의 값을 가져옴, getter<br>
+		attr('title','aaa') : title을 aaa로 지정, setter<br>
+		
+		<h4>예: title(이미지명과 동일)로 이미지 가져오기</h4>
+		var titleValue = $(this).attr('title');<br>
+		$('&lt;img/&gt;',{<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;'width':'100px',<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;'src':'../images/'+titleValue+'.jpg',<br>
+		}).appendTo(this)<br>
+		<br>
+		<h4 style="color: tomato">p태그(한글명)클릭하면 이미지 나옴 :)</h4>
+			
+	</div>
+
+
+
+
+
+</body>
+</html>

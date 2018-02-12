@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.js" type="text/javascript">
+</script>
+<script>
+	$(function(){
+       //전체 배경색을 변경 
+		$('*').css('background','linen');
+       // h1요소의 글자색을 파랑 
+		$('h1').css('color','tomato');
+	   //id가 para인 요소의 글자색은 녹색
+		$('#para').css('color','sienna');
+	   //class 가 sample요소의 글자색은 빨강 
+		$('.sample').css('color','brown');
+	})
+</script>
+<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 500px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+
+</style>
+</head>
+<body>
+	
+	<h1>제목입니다</h1>
+	<h2 id = "para"> 작은제목입니다.</h2>
+	<h2 class="sample"> 샘플입니다.</h2>
+	<br>
+	<div id = "divSum">
+		<h3>전체 : $('*')</h3>
+	    <h4>전체 배경색을 변경</h4> 
+		$('*').css('background','linen');
+		<br>
+		<br>
+		<h3>특정요소: $('요소명')</h3>
+	    <h4>h1요소의 글자색을 파랑</h4> 
+		$('h1').css('color','tomato');
+		<br>
+		<br>
+		<h3>아이디: $('#아이디')</h3>
+	    <h4>id가 para인 요소의 글자색은 녹색</h4> 
+		$('#para').css('color','sienna');
+		<br>
+		<br>
+		<h3>클래스명: $('.클래스명')</h3>
+	    <h4>class 가 sample요소의 글자색은 빨강</h4> 
+		$('.sample').css('color','brown');
+	</div>
+	
+	
+</body>
+</html>
