@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			$('#emp').on('click',function(){
+				$('#d1').empty();
+			})
+			
+			$('#rem').on('click',function(){
+				$('#d2').remove();
+			})
+			
+			
+		})	
+	
+	
+	
+	
+	</script>
+	<style>
+		div{
+			background: linen;
+			border: 2px solid grey;
+			width: 500px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="d1">
+		무궁화 꽃이 피었습니다 - empty
+	</div>
+	
+	<div id="d2">
+		무궁화 꽃이 피었습니다 - remove
+	</div>
+	
+	<button id="emp" type="button">empty</button>
+	<button id="rem" type="button">remove</button>
+		
+	<br>
+	<hr>
+	<br>
+
+
+
+
+
+</body>
+</html>
