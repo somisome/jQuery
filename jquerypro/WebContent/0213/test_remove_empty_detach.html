@@ -14,10 +14,20 @@
 				$('#d2').remove();
 			})
 			
+			$('.dd').on('click',function(){
+				$(this).css('font-size','+=3px');
+			})
 			
+			$('#evdet').on('click',function(){
+				a=$('#d3').detach();
+				$(a).appendTo('body');
+			})
+			
+			$('#evrem').on('click',function(){
+				b=$('#d4').remove();
+				$(b).appendTo('body');
+			})
 		})	
-	
-	
 	
 	
 	</script>
@@ -36,7 +46,7 @@
 	<div id="d1">
 		무궁화 꽃이 피었습니다 - empty
 	</div>
-	
+	<br><br>
 	<div id="d2">
 		무궁화 꽃이 피었습니다 - remove
 	</div>
@@ -45,12 +55,21 @@
 	<button id="rem" type="button">remove</button>
 		
 	<br>
-	<hr>
 	<br>
-
-
-
-
-
+	<hr color='lightblue'>
+	<br>
+	<br>
+	<div class="dd" id="d3">
+		무궁화 꽃이 피었습니다 - detach - 이벤트유지
+	</div>
+	<br><br>
+	<div class="dd" id="d4">
+		무궁화 꽃이 피었습니다 - remove - 이벤트삭제
+	</div>
+	
+	
+	<button id="evdet" type="button">detach(이벤트유지)</button>
+	<button id="evrem" type="button">remove(이벤트삭제)</button>
+		
 </body>
 </html>
