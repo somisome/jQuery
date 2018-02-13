@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		/*
+			prop()
+			true/false 값을 설정하거나 가져온다.
+			disable, multiple, readonly, 
+		*/
+		$(function(){
+			
+			$('#start').on('click',function(){
+				$(this).prop('disabled',true);
+				$('#reverse').prop('disabled',true);
+				a =window.setInterval(function(){
+					//첫번째 이미지를 선택한다.
+					//맨뒤로 이동한다.
+					//$('img:first-child').insertAfter('img:last-child');
+					$('img:first').appendTo('div');
+				},500);
+			})
+			
+			$('#reverse').on('click',function(){
+				$(this).prop('disabled',true);
+				$('#start').prop('disabled',true);
+				a =window.setInterval(function(){
+					//$('img:last-child').insertBefore('img:first-child');
+					$('img:last').prependTo('div');
+				},500);
+			})
+			
+			
+			$('#stop').on('click',function(){
+				$('#start').prop('disabled',false);
+				$('#reverse').prop('disabled',false);
+				clearInterval(a);
+			})
+			
+			
+		
+			
+			
+			
+			
+			
+			
+		})
+		
+	
+	
+	
+	
+	</script>
+	<style>
+		img{
+			width:100px;
+			height:100px;
+		}
+		
+		/* #divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		} */
+	</style>
+</head>
+<body>
+	<div>
+		<img src ="../images/pikachu.png">
+		<img src ="../images/snorlax.png">
+		<img src ="../images/eevee.png">
+		<img src ="../images/charmander.png">
+		<img src ="../images/dratini.png">
+		<img src ="../images/bullbasaur.png">
+		<img src ="../images/jigglypuff.png">
+	</div>
+	
+		<button id="start" type="button">시작</button>
+		<button id="reverse" type="button">거꾸로</button>
+		<button id="stop" type="button">멈춤</button>
+
+	<br>
+	<hr>
+	<br>
+
+	<!-- <div id="divSum">
+		blah blah
+	
+	</div> -->
+
+
+
+
+
+</body>
+</html>

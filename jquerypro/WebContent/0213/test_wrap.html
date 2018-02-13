@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>wrap</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			$('#wrap').on('click',function(){
+				$('p').wrap('<div></div>');
+			})			
+			$('#wrapall').on('click',function(){
+				$('p').wrapAll('<div/>');
+			})			
+			$('#unwrap').on('click',function(){
+				$('p').unwrap();
+			})			
+		})
+	</script>
+	<style>
+		div{
+			background:linen;
+			width: 50%;
+			height: 100px;
+		}
+	
+ 		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		} 
+	</style>
+</head>
+<body>
+	<p>무궁화 꽃이 피었습니다</p>
+	<p>눈이 녹고 있어요</p>
+	<button id="wrap" type="button">wrap</button>
+	<button id="wrapall" type="button">wrapAll</button>
+	<button id="unwrap" type="button">wrap취소</button>
+	
+	
+	<br>
+	<hr>
+	<br>
+ 	<div id="divSum">
+		blah blah
+	
+	</div>
+
+
+
+
+
+</body>
+</html>

@@ -4,8 +4,41 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	<script src="../js/jquery-3.3.1.js"></script>
+	
+	
+	
 	<script>
-		$(function(){
+		/* $(function(){
+			result="";
+			$('#hibut').on('click',function(){
+				result+="hidden의 결과 \n";
+				$('#testForm :hidden').each(function(i){
+					if(this.tagName=='INPUT'){
+						result+="input의 hidden객체["+$(this).attr('name')+":"+$(this).val()+"]\n";
+					}else{
+						result+=$(this).text()+"\n";
+					}
+				})
+				alert(result);				
+			})
+			
+			$('#vibut').on('click',function(){
+				result+="visible의 결과 \n";
+				$('#testForm :visible').each(function(i){
+					if(this.tagName=='INPUT'){
+						result+="input의 visible객체["+$(this).attr('name')+":"+$(this).val()+"]\n";
+					}else{
+						result+=$(this).text()+"\n";
+					}
+				})
+				alert(result);				
+			})
+			
+		}) 
+		*/
+	
+	
+	 	$(function(){
 			
 			$('#hibut').on('click',function(){
 				result="hidden의 결과 \n\n";
@@ -31,8 +64,10 @@
 				alert(result);
 			})				
 			
-		})
+		}) 
+		
 	</script>
+	
 	<style>
 		#divSum{
 			border: 2px solid grey;

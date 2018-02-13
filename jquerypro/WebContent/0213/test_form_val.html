@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			
+			$('a').on('click',function(){
+				event.preventDefault(); //기본적으로 일어나는 이벤트를 막아버려
+			})
+			
+			$('#btnview').on('click',function(){
+				//자동전송 submit 막아버림
+				event.preventDefault();
+				
+				result="";
+				result+='이름: '+$('#user').val()+"\n";
+				
+				//result+='성별: '+$(':radio[name=gend]:checked').val()+"\n";
+				result+='성별: '+$('#gend:checked').val()+"\n";
+				
+				result+='소개: '+$('#intro').val()+"\n";
+				
+				//$('#work option:selected').each(function(i){
+				$('#work :selected').each(function(i){
+					result+='직업: '+$(this).text();
+				})
+				
+/* 				$('option:selected').each(function(i){
+					result+='직업: '+$(this).text();
+				}) */
+				
+				alert(result);
+			})
+			
+			$('#btnchange').on('click',function(){
+				event.preventDefault(); //이거 없으면 setter가 안먹고 submit기능 일어나서 초기페이지처럼 되어버림
+				// 	입력하세요
+				newName = prompt("이름을 입력하세요");
+				$('#user').val(newName); //setter
+				
+				
+			})
+			
+		})
+	</script>
+	
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	
+	
+	<form>
+	
+		<label for="user">이름</label>
+		
+		<input type="text" id="user" value="korea">
+		
+		<br>
+		
+		<label >성별</label> 
+		
+		<input type="radio" id="gend" name="gend" value="남자" checked >
+		남자
+		<input type="radio" id="gend" name="gend" value="여자"  >
+		여자
+		<br>
+		
+		<label for="intro">소개</label> 
+		
+		<textarea id="intro" cols="40" rows="4"></textarea> <br>
+		
+		<label for="work">직업</label>
+		
+		<select id="work">
+			<option value="programmer">프로그래머</option>
+			<option value="progammer">프로게이머</option>
+			<option value="whitehand">백수</option>
+		</select><br>
+		
+		
+		<button type="button" id="btnview">조사하기 </button>
+		<button  id="btnchange">이름변경 </button>
+		
+		<br>
+		<a href="http://www.naver.com">네이버</a>
+		
+	</form>
+
+
+
+
+	<div id="divSum">
+		<h3>예제 val</h3>
+		ppt p.83
+		
+		<h3>event.preventDefault();</h3>
+		default 이벤트를 일어나지 못하게 방지
+		 
+	
+	</div>
+
+
+
+
+
+</body>
+</html>
