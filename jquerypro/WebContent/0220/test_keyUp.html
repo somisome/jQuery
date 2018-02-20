@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		
+		$(function(){
+			$('#area').keyup(function(e){
+				var con = $('#area').val();
+				$('span').text(100-con.length );
+				if((100-con.length )==10){
+					alert("남은 글자수는 10글자 입니다.");
+					//$('#area').attr('readonly',true);
+				}else if((100-con.length )<=0){
+					alert("입력종료");
+					$(this).prop('readonly',true);
+				}
+			})
+		})
+		
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h2>하고싶은 말을 남겨주세요(100자 이내)</h2><br>
+	<textarea id="area" rows=10 cols=50>
+	
+	</textarea>
+<!-- 	<input type=textarea id=txtarea> -->
+	<br>
+	남은글자:<span>100</span>
+	<br><hr><br>
+	<div id="divSum">
+		blah blah
+	
+	</div>
+
+
+
+
+
+</body>
+</html>
