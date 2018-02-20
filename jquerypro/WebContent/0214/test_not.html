@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		// 클래스가 intro가 아닌 것을 선택
+		$('p').not('.intro').css('background', 'red');
+		
+		// p요소중 짝수가 아닌 것을 선택
+		$('p').not(':even').css('border', '2px solid hotpink');
+		
+		// intro, outro가 아닌것을 선택 - 글자크기를 변경
+		$('p').not('.intro, #outro').css('font-size', '40px');
+	});
+</script>
+</head>
+<body>
+<body>
+	<h1>NOT 메소드에 대해서 ...</h1>
+	<p class="intro"> 클래스 이름이 intro가 아닌 p엘리먼트의 배경색을 변경 </p>
+
+	<p>My name is 홍길동.</p>
+	<p class="intro">My name is 개나리.</p>
+	<p class="intro">My name is 진달래.</p>
+	<p>My name is 무궁화 </p>
+	<p id="outro">My name is 장미꽃.</p>
+</body>
+</html>

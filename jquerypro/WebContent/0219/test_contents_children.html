@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+	$(function(){
+		var str="Contents :태그와 상관없이(있거나, 없거나) 자식의 내용을 가져온다\n";
+		
+		$('div').contents().each(function(i){
+			if(typeof this.tagName=='undefined'){
+				str += i + "번째 : ==>>"+$(this).text()+"\n";
+			}else{
+				str += i + "번째 tagname("+this.tagName+")==>>"+$(this).html()+"\n";
+			}
+		})
+		//alert(str);
+		str="Children : 태그가 있는 자식들의 내용을 가져온다 \n";
+		$('div').children().each(function(i){
+			str += i + "번째 tagname("+this.tagName+")==>>"+$(this).html()+"\n";
+		})
+		alert(str);
+		
+	})
+	
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+
+	<div>
+	A
+	<p> P A</p>
+	<span>스판<span>안쪽스판</span></span>
+	</div>
+
+	<br>
+	<hr>
+	<br>
+
+
+
+
+
+
+	<div id="divSum">
+		
+		
+		
+		
+	</div>
+
+
+
+
+
+</body>
+</html>

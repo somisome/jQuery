@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			aa="";
+			
+			$('input[type=button]').on('click',function(){
+				f =$('#ff');
+				$('input[type=checkbox]').each(function(i){
+					if($(this).prop('checked')){
+						aa+=$(this).val()+",";
+					}
+				})
+				aa=aa.substring(0,aa.lastIndexOf(','));
+				$('#vals').val(aa); //form의 hidden으로 aa값을 설정
+				
+				$('#ff').attr('action','aa.jsp'); //form의 action
+				$('#ff').attr('method','post'); //form의 method 설정
+				$('#ff').submit(); //
+				
+				
+			})	
+			
+		})
+		
+	
+	
+	
+	
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<form id="ff">
+	취 미 :
+		<input type="checkbox" name="hobby" value="여행" checked >여행
+		<input type="checkbox" name="hobby" value="장기">장기
+		<input type="checkbox" name="hobby" value="바둑">바둑
+		<input type="checkbox" name="hobby" value="독서" >독서
+		<input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+		<input type="hidden" name="vals" id="vals"><br>
+		<input type="button" value="전송"  onclick="proc(this.form)">
+	</form>
+
+
+
+	<div id="divSum">
+		blah blah
+	
+	</div>
+
+
+
+
+
+</body>
+</html>

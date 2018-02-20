@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			//b태그로 감싸고 글자색을 파랑색으로 변경
+			$('#content').click(function(){
+				$('div.d1').contents().wrap('<b/>');
+				$('div.d1').contents().css('color','blue');
+			})
+			
+			$('#child').click(function(){
+				$('div.d2').children().wrap('<b/>');
+				$('div.d2').children().css('color','blue');
+			})
+			
+		})
+	
+	
+	
+	
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<strong>em태그가 있거나 없거나 모든 자식은 b태그를 붙이고 color-blue</strong>
+	<div class="d1"><em>헬로우 World~~ 아름다운 겨울 날 평창 올림픽이 있는 날~~</em></div>
+	<div class="d1">헬로우 World~~ 졸린 오후!! 준기가 없어요.. 은솔이도.. em도 없어요</div>
+	<br>
+	<button id="content">content(자식의 내용)</button>
+	<br><hr><br>
+	<strong>em태그가 있거나 없거나 모든 자식은 b태그를 붙이고 color-blue</strong>
+	<div class="d2"><em>헬로우 World~~ 아름다운 겨울 날 평창 올림픽이 있는 날~~</em></div>
+	<div class="d2">헬로우 World~~ 졸린 오후!! 준기가 없어요.. 은솔이도.. em도 없어요</div>
+	<br>
+	<button id="child">children</button>
+	
+	<br><hr><br>
+	<div id="divSum">
+		<h3>contents()와 children()</h3>
+		$('#content').click(function(){<br>
+			$('div.d1').contents().wrap('&lt;b/&gt;');<br>
+			$('div.d1').contents().css('color','blue');<br>
+		})<br>
+		<br>
+		$('#child').click(function(){<br>
+			$('div.d2').children().wrap('&lt;b/&gt;');<br>
+			$('div.d2').children().css('color','blue');<br>
+		})<br>
+	<br>
+	</div>
+
+
+
+
+
+</body>
+</html>

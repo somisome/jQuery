@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			$('img').css({'width':'150px','height':'150px'});
+			//$('img').attr('title','imimg');
+			$('img').each(function(i){
+				//$(this).attr('title',(i+1)+"번째 이미지");
+				$(this).attr('title',function(){
+					
+					//이미지의 이름을 얻어서  return 한다.
+					//return하는 값은 title속성으로 설정된다.
+					k = $(this).attr('src');
+					j= k.substring(k.lastIndexOf('/')+1,k.lastIndexOf('.'));
+					return j;
+					
+				})
+				
+			})
+		})
+	
+	
+	
+	
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<img src="../images/pikachu.png">
+	<img src="../images/snorlax.png">
+	<img src="../images/bullbasaur.png">
+	<img src="../images/eevee.png">
+	<img src="../images/jigglypuff.png">
+
+	<br><hr><br>
+	<div id="divSum">
+		이미지 경로 얻기<br>
+		str = $(this).attr('src');<br>
+		경로를 담은 문자열에서 이미지명 얻기<br>
+		str.substring(str.lastIndexOf('/'),str.lastIndexOf('.'));<br>
+	</div>
+
+
+
+
+
+</body>
+</html>

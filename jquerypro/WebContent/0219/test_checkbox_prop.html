@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+			/*
+		$(function(){
+			var str = "체크된 항목은 ";
+			var str2="";
+			$('#btn').on('click',function(){
+				$('input[type=checkbox]').each(function(i){
+					if($(this).prop('checked')==true){
+						if(i>0) str +=", ";
+						str += $(this).val();
+						str2 += $(this).val()+" : "+$(this).prop('checked')+"\n";
+					}else{
+						str2 += $(this).val()+" : "+$(this).prop('checked')+"\n";
+					}
+				})			
+				str+=" 이다.";
+				alert(str+"\n"+str2);
+				str="체크된 항목은 ";
+				str2="";
+			})
+			*/
+			/*
+			$('input[type=button]').on('click',function(){
+				
+				vals="";
+				$('input[type=checkbox]').each(function(i){
+					if($(this).prop('checked')){
+						vals+=$(this).val()+",";
+					}
+				})
+				vals=vals.substring(0,vals.lastIndexOf(","));
+				alert(vals);
+				vals="";
+			})
+
+			
+		})
+		
+			*/
+			var vals="";
+			function proc(f){
+				$('input[type=checkbox]').each(function(i){
+					if($(this).prop('checked')){
+						vals+=$(this).val()+",";
+					}
+				})
+				vals=vals.substring(0,vals.lastIndexOf(","));
+				f.vals.value=vals;
+				f.submit();
+			}
+				
+
+		
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<form action="aa.jsp" method="post">
+	취 미 :
+		<input type="checkbox" name="hobby" value="여행" checked >여행
+		<input type="checkbox" name="hobby" value="장기">장기
+		<input type="checkbox" name="hobby" value="바둑">바둑
+		<input type="checkbox" name="hobby" value="독서" >독서
+		<input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+		<input type="hidden" name="vals" ><br>
+		<input type="button" value="전송"  onclick="proc(this.form)">
+	</form>
+	
+
+
+	<div id="divSum">
+		blah blah
+	
+	</div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+.siblings * { 
+    display: block;
+    border: 2px solid lightgrey;
+    color: lightgrey;
+    padding: 5px;
+    margin: 15px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('#next').click(function(){
+	    $("#d1 li.start").next().css({"color": "red", "border": "2px solid red"});
+	})
+	
+	$('#nextall').click(function(){
+	    $("#d1 li.start").nextAll().css({"color": "blue", "border": "2px solid skyblue"});
+	})
+	
+	$('#nextuntil').click(function(){
+	    $("#d1 li.start").nextUntil("#d1 li.stop").css({"color": "green", "border": "2px solid lightgreen"});
+	})
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	$('#prev').click(function(){
+	    $("#d2 li.start").prev().css({"color": "red", "border": "2px solid red"});
+	})
+	
+	$('#prevall').click(function(){
+	    $("#d2 li.start").prevAll().css({"color": "blue", "border": "2px solid skyblue"});
+	})
+	
+	$('#prevuntil').click(function(){
+	    $("#d2 li.stop").prevUntil("#d2 li.start").css({"color": "green", "border": "2px solid lightgreen"});
+	})
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	$('#parent').click(function(){
+	     $("#d3 span").parent().css({"color": "red", "border": "2px solid red"});
+	})
+	
+	$('#parents').click(function(){
+	     $("#d3 span").parents().css({"color": "blue", "border": "2px solid blue"});
+	})
+	
+	$('#parents_sel').click(function(){
+	     $("#d3 span").parents("#d3 ul").css({"color": "green", "border": "2px solid green"});
+	})
+	
+	$('#parentsuntil_sel').click(function(){
+	     $("#d3 span").parentsUntil("#d3").css({"color": "green", "border": "2px solid green"});
+	})
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	$('#siblings').click(function(){
+	     $("#d4 h2").siblings().css({"color": "red", "border": "2px solid red"});
+	})
+	
+	$('#siblings_sel').click(function(){
+	     $("#d4 span").siblings("#d4 p").css({"color": "blue", "border": "2px solid blue"});
+	})	
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	$('#find').click(function(){
+	     $("ul").find("span").css({"color": "blue", "border": "2px solid blue"});
+	})
+	
+	$('#find_d5').click(function(){
+	     $("#d5 ul").find("span").css({"color": "red", "border": "2px solid red"});
+	})	
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//span을 클릭했을때 부모가 li이면 li의 배경색을 지정하시오
+	
+	$('span').on('click', function(){
+		if($(this).parent().is('li')){
+			$(this).parent().css('background','hotpink');
+		} else {
+			alert('부모가 다릅니다.');
+		}
+	})
+});
+</script>
+</head>
+<body>
+<h1>next에 대해서</h1>
+<div id="d1" style="width:500px;" class="siblings">
+  <ul>ul (parent)  
+    <li>li (sibling)</li>
+    <li>li (sibling)</li>
+    <li class="start">li (sibling with class name "start")</li>
+    <li>li (the next sibling of li with class name "1")</li>
+    <li>li (the next sibling of li with class name "2")</li>
+    <li>li (the next sibling of li with class name "3")</li>
+    <li>li (the next sibling of li with class name "4")</li>
+    <li class="stop">li (sibling with class name "stop")</li>
+    <li>li (sibling)</li>
+  </ul>   
+</div>
+<button id="next">next(start)</button>
+<button id="nextall">nextall(start)</button>
+<button id="nextuntil">nextuntil(2~5)</button>
+
+<hr>
+
+<h1>prev에 대해서</h1>
+<div id="d2" style="width:500px;" class="siblings">
+  <ul>ul (parent)  
+    <li>li (sibling)</li>
+    <li>li (sibling)</li>
+    <li class="start">li (sibling with class name "start")</li>
+    <li>li (the next sibling of li with class name "1")</li>
+    <li>li (the next sibling of li with class name "2")</li>
+    <li>li (the next sibling of li with class name "3")</li>
+    <li>li (the next sibling of li with class name "4")</li>
+    <li class="stop">li (sibling with class name "stop")</li>
+    <li>li (sibling)</li>
+  </ul>   
+</div>
+<button id="prev">prev(start)</button>
+<button id="prevall">prevall(start)</button>
+<button id="prevuntil">prevuntil(2~5)</button>
+<!-- $('li:eq(4)).prevuntil('$('li:eq(2))) -->
+
+<hr>
+
+<h1>parent에 대해서</h1>
+<div id="d3" style="width:500px;" class="siblings">
+  <ul>ul (great-grandparent)  
+	<li> li(grandparent)
+		<span>span1</span>
+	</li>
+  </ul>   
+</div>
+<button id="parent">parent(start)</button>
+<button id="parents">parents(start)</button>
+<button id="parents_sel">parents_sel(ul)</button>
+<button id="parentsuntil_sel">parentsuntil(div)</button>
+
+<hr>
+
+<h1>sibling에 대해서</h1>
+<div id="d4" style="width:500px;" class="siblings">
+  <ul>ul (parent)  
+    <span>span</span>
+    <p>p1</p>
+    <p>p2</p>
+    <h2>h2</h2>
+    <p>p</p>
+  </ul>   
+</div>
+<button id="siblings">siblings</button>
+<button id="siblings_sel">siblings_sel</button>
+
+<hr>
+
+<h1>find에 대해서</h1>
+<div id="d5" style="width:500px;" class="siblings">
+  <ul>ul
+	<li> li
+		<span>span1</span>
+	</li>
+  </ul>   
+</div>
+<button id="find">find()</button>
+<button id="find_d5">find(#d5)</button>
+
+</body>
+</html>

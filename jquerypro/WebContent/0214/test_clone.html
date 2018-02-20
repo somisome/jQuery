@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js" ></script>
+
+<script>
+	$(function(){
+		$('p').on('click', function(){
+			$(this).css('font-size', '+=3px');
+		})
+		
+		$('#clone').click(function(){
+			a = $("#p1").clone();
+			$(a).appendTo('body');
+		})
+		
+		$('#clonetrue').click(function(){
+			a = $("#p2").clone(true);
+			$('body').append(a);
+		})
+	})
+</script>
+</head>
+<body>
+	<p id="p1">내일은 명절 휴일의 시작입니다.</p>
+	<p id="p2">무궁화 꽃이 피었습니다.</p>
+	<button id="clone">복사(clone)</button>
+	<button id="clonetrue">복사(clone-true)</button>
+</body>
+</html>
