@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			$('p').on('click',function(){
+// 				a = Math.floor(Math.random()*255);
+// 				b = Math.floor(Math.random()*255);
+// 				c = Math.floor(Math.random()*255);
+				a = parseInt(Math.random()*256);
+				b = parseInt(Math.random()*256);
+				c = parseInt(Math.random()*256);
+				$(this).css({'font-size':'+=5px','color':'rgb('+a+','+b+','+c+')'});
+			})	
+			$('button').on('click',function(){
+				$('p').off('click');
+			})
+		})
+	</script>
+	<style>
+
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	p를 클릭할 때 마다 폰트사이즈가 5px씩 증가한다.<br>
+	글자색상도 매번 랜덤으로 변경한다. <br>
+	<br>
+	<p class=mu>무궁화 꽃이 피었습니다.</p>
+	<br>
+	<button>이벤트 해제</button>
+	<br><hr color = 'pink'><br>
+	<div id="divSum">
+	<br>
+	<h4>p - 폰트컬러 랜덤변경, 폰트사이즈 증가</h4>
+		$('p').on('click',function(){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;a = Math.floor(Math.random()*255);<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;b = Math.floor(Math.random()*255);<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;c = Math.floor(Math.random()*255);<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;$(this).css({'font-size':'+=5px','color':'rgb('+a+','+b+','+c+')'});<br>
+		})	<br><br>
+	<h4>이벤트 해제</h4>
+		$('button').on('click',function(){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;$('p').off('click');<br>
+		})<br>
+	<br>
+	</div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+// 			$('p').on('click', function() {  
+// 			$('p').click(function(){ })  
+			count = 0;
+			$("p").bind("click", function() { 
+// 				if(count<5){
+//				$(this).css('font-size','+=5px');
+//				count++;
+// 				}else{
+// 					$(this).unbind();					
+// 				}
+				$(this).css('font-size','+=5px');
+				count++;
+				if(count>=5) $(this).unbind();					
+			});
+			
+		})
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<p>클릭하세요</p>
+	<br><hr><br>
+
+	<div id="divSum">
+			<br>
+			count = 0;<br>
+			$("p").bind("click", function() { <br>
+			&nbsp;&nbsp;&nbsp;$(this).css('font-size','+=5px');<br>
+			&nbsp;&nbsp;&nbsp;count++;<br>
+			&nbsp;&nbsp;&nbsp;if(count>=5) $(this).unbind();		<br>			
+			});<br>
+	
+	</div>
+
+
+
+
+
+</body>
+</html>

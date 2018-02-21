@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+	$(function(){
+		//bind의 의미 : 기존의 h1에만 이벤트 핸들러가 실행
+		/*
+		$('h1').on('click',function(){
+			$(this).css('background','orange');
+			$('<h1>새로운 엘리먼트</h1>').appendTo('body');
+		})
+		*/
+		
+		
+		//delegate의 의미 : 기존의 h1와 새로운 엘리먼트에도 이벤트 핸들러 실행
+		$('body').on('click','h1',function(){
+			$(this).css({'background':'pink','color':'tomato'});
+			$('<h1>새로운 엘리먼트</h1>').appendTo('body');
+		})
+		
+		
+		
+	})
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>제목입니다.</h1>
+	<h1>클릭하세요</h1>
+	<div id="divSum">
+		
+		bind의 의미 : 기존의 h1에만 이벤트 핸들러가 실행<br>
+		$('h1').on('click',function(){<br>
+			$(this).css('background','orange');<br>
+			$('&lt;h1&gt;새로운 엘리먼트&lt;/h1&gt;').appendTo('body');<br>
+		})<br>
+		<br><br>
+		
+		delegate의 의미 : 기존의 h1와 새로운 엘리먼트에도 이벤트 핸들러 실행<br>
+		$('body').on('click','h1',function(){<br>
+			$(this).css({'background':'pink','color':'tomato'});<br>
+			$('&lt;h1&gt;새로운 엘리먼트&lt;/h1&gt;').appendTo('body');<br>
+		})<br>
+		<br>
+	</div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			//처음부터 body안에 만들어져 있었던  button.bb에만 이벤트가 적용된다 - bind
+			//새롭게 만들어지는 button.bb에는 이벤트가 적용되지 않는다. - bind
+// 			$('.bb').bind('click',function(){
+// 				$('<button/>',{'class':'bb','text':'버튼'}).appendTo('#d2');
+// 			})	
+			
+// 			$(document).delegate('.bb','click',function(){$('<button/>',{'class':'bb','text':'버튼'}).appendTo('#d2');});
+
+			//처음부터 body안에 만들어져 있었던  button.bb와 
+			//새롭게 만들어지는 button.bb에 이벤트가 적용된다 - delegate
+			$('div').delegate('.bb','click',function(){
+				//$(this)는  div가 아니고 .bb이다.
+				$('<button/>',{'class':'bb','text':'버튼'}).appendTo('#d2');
+			});
+			
+			
+			$('#but').bind('click',function(){
+				$('div').undelegate();
+ 				//$('div').off();
+				//$('.bb').unbind();
+				//$('#d2').html('');
+			})	
+		})
+	</script>
+	<style>
+		div{
+			width: 800px;
+			border: 2px tomato solid;
+			margin: 2px;
+			padding: 2px;
+		}
+		button{
+			margin: 2px;
+			padding: 2px;
+		}
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<button class=bb>버튼1</button>
+		<button class=bb>버튼2</button>
+		<button class=bb>버튼3</button>
+	</div>
+	<br>
+	<button id=but>해제</button>
+	
+	<hr color="pink">
+	<div id=d2></div>
+	
+	<br>
+	<br>
+	<hr>
+	<br>
+	<br>
+	<div id="divSum">
+		<h3>bind()와 unbind()</h3>
+			<br>
+			$('.bb').bind('click',function(){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;$('&lt;button/&gt;',{'text':'버튼'+count}).appendTo('#d2');<br>
+			})	<br>
+			<br>
+			$('#but').bind('click',function(){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;$('.bb').unbind();<br>
+			})	
+		<br>
+		<br>
+		<h4>bind()메소드</h4>
+		선택자로 검색한 모든 엘리먼트에 핸들러를 등록<br>
+		처음부터 body안에 만들어져 있었던것에만 이벤트가 적용<br>
+		새롭게 만들어지는 것에는 이벤트가 적용되지 않는다.<br>
+		<h4>delegate(선택자, 이벤트명, 핸들러)</h4>
+		미래에 추가될 엘리먼트에 대해서도 핸들러를 미리 등록하는 메서드<br>
+		처음부터 body안에 만들어져 있었던 것과 새롭게 만들어지는 것 모두 이벤트 적용<br>
+		$(document).delegate(선택자, 이벤트명, 핸들러 )<br><br>
+		
+		<h4>모든 이벤트 등록 메소드 - 통합 메소드 (1.7버전에서 도입)</h4>
+		on(이벤트명, [선택자], 핸들러)  <br>
+		off( 이벤트명, [선택자], 핸들러)<br>
+		>> 선택자 가 있으면 delegate와 같고 없으면 bind와 같음
+		
+	</div>
+
+
+
+
+
+</body>
+</html>

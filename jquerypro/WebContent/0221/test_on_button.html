@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			//bind와 같은 경우
+			/*
+			$('.bb').on('click',function(){
+				$('<button/>',{
+					'class':'bb',
+					'text':'버튼'
+					}).appendTo('#d2');
+			})
+			*/
+			//delegate와 같은 경우
+			$('div').on('click','.bb',function(){
+				$('<button/>',{
+					'class':'bb',
+					'text':'버튼'
+					}).appendTo('#d2');
+			})
+			//해제버튼클릭하면
+			$('#but').bind('click',function(){
+				//새로운 버튼 생성을 멈춘다.
+				$('div').off('click');
+			})	
+			
+			
+		})
+	</script>
+	<style>
+		div{
+			width: 800px;
+			border: 2px tomato solid;
+			margin: 2px;
+			padding: 2px;
+		}
+		
+		button{
+			margin: 2px;
+			padding: 2px;
+		}
+	
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div>
+		<button class=bb>버튼1</button>
+		<button class=bb>버튼2</button>
+		<button class=bb>버튼3</button>
+	</div>
+	<br>
+	<button id=but>해제</button>
+	
+	<hr color="pink">
+	<div id=d2></div>
+	
+	<br>
+	<br>
+
+
+	<div id="divSum">
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<h3>bind와 같은 경우</h3>
+		$('.bb').on('click',function(){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;$('&lt;button/&gt;',{<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'class':'bb',<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'text':'버튼'<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}).appendTo('#d2');<br>
+		})<br>
+		<br>
+		<h3>delegate와 같은 경우</h3>
+		$('div').on('click','.bb',function(){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;$('&lt;button/&gt;',{<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'class':'bb',<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'text':'버튼'<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}).appendTo('#d2');<br>
+		})<br>
+		<br>
+		<h3>bind, delegate 이벤트 해제</h3>
+		$('#but').bind('click',function(){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;$('div').off('click');<br>
+		})	
+	<br>
+	</div>
+
+
+
+
+
+</body>
+</html>

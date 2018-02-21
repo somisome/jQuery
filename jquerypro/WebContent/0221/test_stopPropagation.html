@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			$('span#sp1').on('click',function(){
+				event.stopPropagation();
+				$(this).css('background','tomato');
+			})
+			$('h1').on('click',function(){
+				$(this).css('background','linen');
+			})
+			$('span#sp2').on('click',function(){
+				event.stopPropagation();
+				$(this).css('border','5px solid sienna');
+				alert("span - sp2 clicked");
+			})
+			$('button').on('click',function(){
+				event.stopPropagation();
+				$(this).css('border','5px solid forestgreen');
+				alert("button clicked");
+			})
+			$('div').on('click',function(){
+				$(this).css('border','5px solid grey');
+				alert("div clicked");
+			})
+			$('a').on('click',function(){
+				//나이입력받음
+				age = prompt("나이를 입력하세요");
+				
+				//18세 이상이면 접근금지 alert
+				if(age<=18){
+					event.preventDefault();
+					alert(age+"세는 접근금지입니다.");					
+				}else if(age>18){
+					
+				}else{
+					event.preventDefault();
+					alert(age+"는 숫자가 아닙니다. 숫자를 입력하세요");					
+				}
+			})
+		})
+	</script>
+	<style>
+		div{
+			width: 300px;
+			height: 300px;
+			background: linen;
+		}
+		#sp2{
+			margin:20px;
+			padding:20px;
+			display:inline-block; 
+			width:150px; 
+			height:150px;
+			background: tomato;
+		}
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1> 큰제목안에 <span id=sp1> 작은 영역</span>이 있다 </h1>
+
+	<br><hr><br>
+	
+	  <div> <span id=sp2> <button> 클릭하세요</button>  </span></div>
+		<br><hr color="pink"><br>
+		<a href="http://www.daum.net">Daum사이트 가기</a>
+	
+	
+	<br><hr><br>
+
+	<div id="divSum">
+		event.preventDefault();
+		<br>
+		DOM 트리의 이벤트 버블링을 막는다.
+		<br>
+		<br>
+		event.preventDefault();
+		<br>
+		기본 이벤트 방지		
+		<br>
+		<br>
+		event는 이벤트객체변수이다.		
+	</div>
+
+
+
+
+
+</body>
+</html>

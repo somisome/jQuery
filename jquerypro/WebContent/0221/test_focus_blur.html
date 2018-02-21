@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+// 		$(function(){
+// 			$("input").select(function(){
+// 		        $("input").after("Text marked!");
+// 		    });
+		    
+// 		    $("button").click(function(){
+// 		        $("input").trigger("select");
+// 		    });
+// 		})
+		
+		$(function () {
+			
+// 		    $("input").on('focus',function () {
+		    $("input").focus(function () {
+	           $(this).css("background-color", "yellow");
+		    });
+		
+		    $("input").blur(function () {
+	           $(this).css("background-color", "white");
+		    });
+		});
+
+		
+		
+	
+	</script>
+	<style>
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+
+<!-- 	<input type="text" value="Hello World"><br><br> -->
+<!-- 	<button>Trigger the select event for the input field</button> -->
+	
+	<br>
+	    아이디:<input type="text" name="id"><p>
+ 	    이   름:<input type="text" name="fullname"><p>
+	    이메일:<input type="text" name="email">
+	
+
+	<div id="divSum">
+		<h3>focus가 있을때</h3>
+		$("input").focus(function () {<br>
+	    &nbsp;&nbsp;&nbsp;&nbsp;$(this).css("background-color", "yellow");<br>
+		});<br>
+		<br><br>
+		<h3>blur - focus가 없을때</h3>
+		$("input").blur(function () {<br>
+	    &nbsp;&nbsp;&nbsp;&nbsp;$(this).css("background-color", "white");<br>
+		});<br>
+	
+	</div>
+
+
+
+
+
+</body>
+</html>
