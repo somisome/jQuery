@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+	        $("#left").on('click',function(){
+	            $("#pika").animate({'left':'-=100px'},1000); 
+	        });
+	        $("#right").on('click',function(){
+	            $("#pika").animate({'left':'+=100px'},1000); 
+	        });
+	        $("#down").on('click',function(){
+	            $("#pika").animate({'top':'+=150px'},500); 
+	        });
+	        $("#up").on('click',function(){
+	            $("#pika").animate({'top':'-=150px'},500); 
+	        });
+	        /////////////////////////////////////////
+	        $("#font").on('click',function(){
+// 	            $("p").css('font-size','+=5px'); 
+	            $("p").animate({'font-size':'+=5px'},600); 
+	        });
+	        
+	        ///////////////////////////////////////////
+	        $("#delay").on('click',function(){
+// 	        	$("#jam").slideUp(500,function(){$("#jam").show()});
+// 	        	$("#jam").slideUp(500).delay(500);
+// 	        	$("#jam").show(500);
+// 	        	$("#jam").fadeIn(500).delay(500);
+// 	            $("#jam").animate({'left':'+=100px'},500); 
+	        	$("#jam").slideUp('slow').delay(400).slideDown('slow').delay(400).animate({'left':'+=100px'},500);
+
+	        });
+		});
+	
+	</script>
+	<style>
+		#pika,#jam{
+			width:100px;
+			height:100px;
+			position: relative; 
+		}
+		p{
+			position: relative;
+		}
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	 <img id="pika" src="../images/pikachu.png"/><br>
+    <button id="left">left</button>
+    <button id="right">right</button>
+    <button id="down">down</button>
+    <button id="up">up</button>
+	
+	<br><hr color = 'sienna'><br><br>
+	
+	<p>무궁화 꽃이 피었습니다.</p>
+    <button id="font">font</button>
+	
+	<br><hr color = 'sienna'><br><br>
+
+	<img id="jam" src="../images/snorlax.png"><br>
+    <button id="delay">delay</button>
+			
+
+	<br><hr color = 'sienna'><br><br>
+	<div id="divSum">
+
+		왼쪽으로<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; $("#pika").animate({'left':'-=100px'},1000); <br>
+		 오른쪽으로<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; $("#pika").animate({'left':'+=100px'},1000); <br>
+		 아래로<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; $("#pika").animate({'top':'+=150px'},500); <br>
+		위로<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; $("#pika").animate({'top':'-=150px'},500); <br><br><br>
+		
+		단순 폰트크기 변경<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;$("p").css('font-size','+=5px'); <br>
+		속도 조절하면서 폰트 크기 변경<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;$("p").animate({'font-size':'+=5px'},600); <br>
+		
+		<br><br>.delay(시간)<br>
+		$("#jam").fadeIn(500).delay(500);<br>
+		<br>.delay()이용하면서 연속된 동작 한번에 줄 수 있음<br>
+		$("#jam").slideUp('slow').delay(400).slideDown('slow');
+
+</div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			$('#move').on('click',function(){
+				$('#pika').animate({'left':'+=100px'}).delay(300).animate({'opacity':'-=0.8'}).delay(300).animate({'left':'-=100px'}).delay(300).animate({'opacity':'+=0.8'});
+				$('#pop').show(1000,function(){$(this).hide();});
+			});
+		});
+
+	
+		
+		
+		
+	</script>
+	<style>
+		#pika{
+			width:100px;
+			height:100px;
+			position: relative; 
+		}
+		#pop{
+			color:orange;
+			font-weight:bold;
+			display:none;
+		}
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 20px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="pop">pika!!</div>
+	<img id="pika" src="../images/pikachu.png"/><br>
+    <button id="move">Start! :D</button>
+	
+	<br><hr color = 'sienna'><br><br>
+	
+	<br><hr color = 'sienna'><br><br>
+	<div id="divSum">
+		
+		1. 오른쪽으로 100 만큼 이동<br>
+		2. 투명도 -= 0.8 만큼 흐려짐<br>
+		3. 다시왼쪽 -100 이동 <br>
+		4. 투명도 +=0.8 만큼 또렷해짐 <br>
+		              
+		>>오른쪽으로 이동하고 흐려짐<br>
+		>>왼쪽으로 이동하고 또렷해짐<br>
+
+		
+	</div>
+
+
+
+
+
+</body>
+</html>

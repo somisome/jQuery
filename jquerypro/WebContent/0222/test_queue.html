@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+			$('#start').on('click',function(){
+				$('#rect').animate({'left':'+=100px'},800).delay(500);
+				$('#rect').queue(function(){
+					$(this).css('background','pink');
+					$(this).dequeue();//이걸 안쓰면 다음 문장이 수행되지 않음
+				})
+				$('#rect').delay(500).animate({'left':'-=100px'},800).delay(500);
+				$('#rect').queue(function(){
+					$(this).css('background','lightblue');
+					$(this).dequeue(); //수행할 다음문장이 없을때에는 없어도 됨
+				})
+			});
+			//////////////////////////////////////////////////////////
+			a="";
+			$('#font').on('click',function(){
+
+				a=window.setInterval(function(){
+					
+// 					$('#mu').animate({'left':'+=200px'},1000).delay(500);
+					$('#mu').animate({'font-size':'+=5px'},600).delay(500);
+					$('#mu').queue(function(){
+						a = parseInt(Math.random()*256);
+						b = parseInt(Math.random()*256);
+						c = parseInt(Math.random()*256);
+						$(this).css({'color':'rgb('+a+','+b+','+c+')'});
+						$(this).dequeue();
+					})
+					$('#mu').delay(100);
+					$('#mu').queue(function(){
+						a = parseInt(Math.random()*256);
+						b = parseInt(Math.random()*256);
+						c = parseInt(Math.random()*256);
+// 						$(this).css({'color':'rgb('+a+','+b+','+c+')','font-size':'+=10px'});
+						$(this).css({'color':'rgb('+a+','+b+','+c+')'});
+						$(this).dequeue();
+					})
+// 					$('#mu').delay(500).animate({'left':'-=200px'},800).delay(500);
+					$('#mu').delay(500).animate({'font-size':'-=5px'},600).delay(500);
+					$('#mu').queue(function(){
+						a = parseInt(Math.random()*256);
+						b = parseInt(Math.random()*256);
+						c = parseInt(Math.random()*256);
+// 						$(this).css({'color':'rgb('+a+','+b+','+c+')','font-size':'-=10px'});
+						$(this).css({'color':'rgb('+a+','+b+','+c+')'});
+						$(this).dequeue();
+					})
+				},500);
+			});		
+			
+			$('#stop').on('click',function(){clearInterval(a)});
+			
+		});
+	</script>
+	<style>
+		#rect{
+			width:150px;
+			height:150px;
+			background: lightblue;
+			border:solid 1px lightblue;
+			position:relative;
+		}
+		#mu{
+			color: forestgreen;
+			position:relative;
+			font-weight:bold;
+		}
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+    <button id="start">Start! :D</button>
+	
+	<br><hr color = 'sienna'><br><br>
+	
+	<div id="rect"></div>
+    
+	<br><hr color = 'sienna'><br><br>
+    
+    <button id="font">FONT! :D</button>
+    <button id="stop">STOP</button>
+    
+	<p id='mu'>무궁화 꽃이 피었습니다.</p>	
+	
+	<br><hr color = 'sienna'><br><br>
+
+
+	<div id="divSum">
+		<br>
+		$('#rect').animate({'left':'+=100px'},800).delay(500);<br>
+		$('#rect').queue(function(){<br>
+			$(this).css('background','pink');<br>
+			$(this).dequeue();<br>
+		})<br>
+	<br>
+	<h4>$(객체).dequeue()를 쓰지 않으면 다음 문장이 수행되지 않는다.</h4>
+	</div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.js"></script>
+	<script>
+		$(function(){
+	        $("#show").click(function () {
+// 	            $("#pika").show();
+	            $("img#pika").show(1000);
+	        });
+	        $("#hide").click(function () {
+// 	            $("#pika").hide();
+	            $("img#pika").hide("slow");
+	        });
+	        $("#toggle").click(function () {
+// 	            $("#pika").toggle();
+	            $("img#pika").toggle(100);
+	        });
+	        $("#swing").click(function () {
+	            $("img#pika").show(1000,"swing");
+	        });
+	        $("#linear").click(function () {
+	            $("img#pika").show(1000,"linear");
+	        });
+	        /////////////////////////////////////////////
+	        
+			$('#fin').on('click',function(){
+				$('#jam').fadeIn(1000,'linaer',function(){alert('곰이 나타났어요 XD');});
+			});
+	        
+			$('#fout').on('click',function(){
+				$('#jam').fadeOut('slow');
+			});
+			$('#ftoggle').on('click',function(){
+				$('#jam').fadeToggle(600);
+			});
+			$('#fto').on('click',function(){
+// 				한번 지정하면 지정한투명도(0.2)가 계속 지속됨
+				$('#jam').fadeTo(600,0.2);
+			});
+			//////////////////////////////////////////////
+			$('#sup').on('click',function(){
+				$('#pu').slideUp();
+			});
+			$('#sdown').on('click',function(){
+				$('#pu').slideDown();
+			});
+			$('#stoggle').on('click',function(){
+				$('#pu').slideToggle();
+			});
+
+			//////////////////////////////////////////////
+			
+	        
+		})
+	</script>
+	<style>
+		img{
+			width: 100px;
+			height: 100px;
+			display: none;
+		}
+		#divSum{
+			border: 2px solid grey;
+			width: 700px; 
+			margin: 10px;
+			padding: 10px;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	    <button id="show">Show</button>
+	    <button id="hide">Hide</button>
+	    <button id="toggle">Toggle</button>
+	    <button id="swing">Swing</button>
+	    <button id="linear">Linear</button>
+    	<br>
+    	<img id="pika" src="../images/pikachu.png">
+		<br><br>
+		<hr color=pink>
+		<br><br>
+		<button id="fin">fade in</button>
+		<button id="fout">fade out</button>
+		<button id="ftoggle">fade toggle</button>
+		<button id="fto">fade to</button>
+    	<img id="jam" src="../images/snorlax.png">
+
+		<br><br>
+		<hr color=pink>
+		<br><br>
+		
+		<button id="sup">slide up</button>
+		<button id="sdown">slide down</button>
+		<button id="stoggle">slide toggle</button>
+    	<img id="pu" src="../images/jigglypuff.png">
+
+		<br><br>
+		<hr color=pink>
+		<br><br>
+		
+		
+	<div id="divSum">
+	
+		<h3>jQuery Effects</h3>
+		<h4>기본Effects</h4>  
+	    show,  hide,  slideDown, sliceUp ,fadeIn, fadeOut, fadeTo, toggle()<br>
+		slide와 fade는 속도에 400을 기본으로 한다 slow(600), fast(200) <br>
+		fade  : 투명도를 변경 <br>
+		slide : 높이를변경   <br>
+		show, hide : 높이와 투명도를 변경<br>
+		<br>
+		$(selector).show(speed, easing, callback)<br>
+		 speed:  milliseconds,."slow", "fast"<br>
+		 easing : "swing" – 처음과 끝은 천천히  중간에는 빠르게
+		 <br>"linear" – 움직이는 속도 일정<br> 
+		callback  :     옵션,  show메소드  실행완료후  에 수행될 함수<br>
+			<br><br>
+			 투명도 조절은 : 0.0~1.0
+		<br><br><br>
+
+            $("#id").show();<br>
+			$("#id").hide();<br>
+			$("#id").toggle();<br>
+        
+			$("#id").fadeIn(1000,'linaer');<br>
+			$("#id").fadeOut('slow');<br>
+			$("#id").fadeToggle(600);<br>
+			$("#id").fadeTo(600,0.2);<br>
+			$("#id").slideUp();<br>
+			$("#id").slideDown();<br>
+			$("#id").slideToggle();<br>
+			 
+	
+	</div>
+
+
+
+
+
+</body>
+</html>
