@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<meta charset="UTF-8">
+
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+
+<p id="demo">Let AJAX change this text.</p>
+
+<button type="button" onclick="loadDoc()">Change Content</button>
+
+<script>
+/*
+//readyState	:
+	0: request not initialized 초기화 안됨, 로딩중
+	1: server connection established 연결, 로딩완료
+	2: request received 요청받음
+	3: processing request 요청처리
+	4: request finished and response is ready 요청처리끝 응답준비됨
+status :
+	200: "OK" 성공
+	403: "Forbidden" 접근거부
+	404: "Not Found" 파일없음
+*/	
+
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  
+  data = "name=korea&age=15";
+  xhttp.open("POST", "ajax_info_post.jsp", true);
+  xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xhttp.send(data);
+  //////////////////////////////////////////////////
+  //get 방식
+  //xhttp.open("GET", "ajax_info.jsp", true);
+  //xhttp.send();
+  //////////////////////////////////////////////////
+}
+</script>
+
+</body>
+</html>

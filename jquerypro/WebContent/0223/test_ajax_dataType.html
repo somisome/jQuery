@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.js"></script>
+<script>
+	$(function(){
+		$('#txt').click(function(){
+			xhttp=new XMLHttpRequest();	
+			//요청
+			xhttp.open("GET","textData.jsp",true);
+			xhttp.send();
+			
+			//응답
+			xhttp.onreadystatechange=function(){
+				if(this.readyState==4&&this.status==200){
+					var data=this.responseText.split("&");
+					code="<ul>"
+					$.each(data,function(i){
+						code+="<li>"+data[i]+"</li>"
+					})
+					code+="</ul>";
+					$('#res1').html(code);
+				}
+			}
+			
+		});
+		
+		////////////////////////////////////////////////
+		$('#jarr').click(function(){
+			xhttp=new XMLHttpRequest();
+			//요청
+			xhttp.open("GET","JsonArr.jsp",true);
+			xhttp.send();
+			//응답
+			xhttp.onreadystatechange=function(){
+				if(this.readyState==4&&this.status==200){
+					var data=JSON.parse(this.responseText);
+					code="<ol>"
+					$.each(data,function(i){
+						code+="<li>"+data[i]+"</li>"
+					})
+					code+="</ol>";
+					$('#res2').html(code);
+				}
+			}
+		});
+		/////////////////////////////////////////////////
+		$('#jobj').click(function(){
+			xhttp=new XMLHttpRequest();
+			//요청
+			xhttp.open("GET","JsonObj.jsp",true);
+			xhttp.send();
+			//응답
+			xhttp.onreadystatechange=function(){
+				if(this.readyState==4&&this.status==200){
+					var data=JSON.parse(this.responseText);
+					code="이름: "+ data.name + "<br>" ;
+					code+="주소: "+ data.addr + "<br>" ;
+					code+="전화번호: "+ data.tel + "<br>" ;
+					$('#res3').html(code);
+				}
+			}
+		});
+			
+		/////////////////////////////////////////////////
+		$('#jmix').click(function(){
+			xhttp=new XMLHttpRequest();
+			//요청
+			xhttp.open("GET","JsonMix.jsp",true);
+			xhttp.send();
+			//응답
+			xhttp.onreadystatechange=function(){
+				if(this.readyState==4&&this.status==200){
+					var data=JSON.parse(this.responseText);
+					
+					code="";
+					$.each(data,function(i){
+						code+="<h4>"+(i+1)+"번째 회원 정보</h4>"
+						code+="이름: "+ data[i].name + "<br>" ;
+						code+="주소: "+ data[i].addr + "<br>" ;
+						code+="전화번호: "+ data[i].tel + "<br>" ;
+					})
+					code+="<br>";
+					$('#res4').html(code);
+				}
+			}
+		});
+		/////////////////////////////////////////////////
+	});
+</script>
+<style>
+	div{
+		float:left;
+		width:200px;
+		min-height:200px;
+		border: 2px solid lightblue;
+		margin:5px;
+	}
+</style>
+</head>
+
+<body>
+	<button id="txt">TextData 읽기</button>
+	<button id="jarr">JSONArrayData 읽기</button>
+	<button id="jobj">JSONObjData 읽기</button>
+	<button id="jmix">JSONMixData 읽기</button>
+	<br><hr color=pink><br>
+	
+	<div id="res1"></div>
+	<div id="res2"></div>
+	<div id="res3"></div>
+	<div id="res4"></div>
+</body>
+</html>
