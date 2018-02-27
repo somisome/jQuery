@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="buyer">
+	<typeAlias alias="buyerVO" type="kr.or.ddit.buyer.vo.BuyerVO"/>
+	
+	<select id="getNameList" resultClass="buyerVO">
+		SELECT 
+			BUYER_ID, BUYER_NAME 
+		FROM 
+			BUYER 
+	</select>
+	
+	<!-- buyer_id를 조건으로 하는 상세보기를 위한 query -->
+	<select id="getBuyerDetail" parameterClass="string" resultClass="buyerVO">
+		SELECT 
+			* 
+		FROM 
+			BUYER
+		WHERE 
+			BUYER_ID=#buyer_id# 
+	</select>
+
+</sqlMap>
+
+
+
+
+

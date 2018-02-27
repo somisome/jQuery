@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.js"></script>
+<script>
+$(function(){
+	$('#buyer').on('click',function(){
+		$.getJSON(
+			'buyerNameList.jsp', //응답결과 json생성
+			function(res){//결과를 res변수에 받는다.
+				code="";
+				$.each(res,function(i){
+					code+="<div class='xxx' id='"+res[i].id+"'>"+res[i].name+"</div>";
+				})
+				$('#nameList').html(code);
+			}
+		)
+	});
+	
+	
+	$('#nameList').on('click','div',function(){
+		var idval = $(this).attr('id');
+		$.post(
+			'buyerDetail.jsp',//응답결과 json생성
+			'buyer_id='+idval,//jsp요청시에 보내질 데이터
+			function(res){//결과를 res 변수에 받는다
+				code="<table>";				
+				code+="<tr><td>거래처코드</td><td>"+res.id+"</td></tr>";
+				code+="<tr><td>거래처명</td><td>"+res.name+"</td></tr>";
+				code+="<tr><td>취급상품대분류</td><td>"+res.lgu+"</td></tr>";
+				code+="<tr><td>은행</td><td>"+res.bank+"</td></tr>";
+				code+="<tr><td>계좌번호</td><td>"+res.bankno+"</td></tr>";
+				code+="<tr><td>예금주</td><td>"+res.bankname+"</td></tr>";
+				code+="<tr><td>우편번호</td><td>"+res.zip+"</td></tr>";
+				code+="<tr><td>주소</td><td>"+res.add1+""+res.add2+"</td></tr>";
+				code+="<tr><td>전화번호</td><td>"+res.comtel+"</td></tr>";
+				code+="<tr><td>팩스번호</td><td>"+res.fax+"</td></tr>";
+				code+="<tr><td>메일</td><td>"+res.mail+"</td></tr>";
+				code+="<tr><td>담당자</td><td>"+res.charger+"</td></tr>";
+				code+="<tr><td>구내전화번호</td><td>"+res.telext+"</td></tr>";
+				code+="</table>"
+				$('#viewDetail').html(code);
+			},
+			'json'
+		)
+	});
+	
+	
+	
+	
+	/*
+	$('div').delegate('.xxx','click',function(){
+		send = $(this).attr('id');
+		$.getJSON(
+			'buyerDetail.jsp?buyer_id='+send,
+			function(res){
+				code="<table>";				
+				code+="<tr><td>거래처코드</td><td>"+res.id+"</td></tr>";
+				code+="<tr><td>거래처명</td><td>"+res.name+"</td></tr>";
+				code+="<tr><td>취급상품대분류</td><td>"+res.lgu+"</td></tr>";
+				code+="<tr><td>은행</td><td>"+res.bank+"</td></tr>";
+				code+="<tr><td>계좌번호</td><td>"+res.bankno+"</td></tr>";
+				code+="<tr><td>예금주</td><td>"+res.bankname+"</td></tr>";
+				code+="<tr><td>우편번호</td><td>"+res.zip+"</td></tr>";
+				code+="<tr><td>주소</td><td>"+res.add1+""+res.add2+"</td></tr>";
+				code+="<tr><td>전화번호</td><td>"+res.comtel+"</td></tr>";
+				code+="<tr><td>팩스번호</td><td>"+res.fax+"</td></tr>";
+				code+="<tr><td>메일</td><td>"+res.mail+"</td></tr>";
+				code+="<tr><td>담당자</td><td>"+res.charger+"</td></tr>";
+				code+="<tr><td>구내전화번호</td><td>"+res.telext+"</td></tr>";
+				code+="</table>"
+				$('#viewDetail').html(code);
+			}
+		)
+	});
+	*/
+
+	
+	
+});
+</script>
+<style>
+	td{
+		width:200px;
+		height:20px;
+		 border:solid 2px sienna;
+		 text-align: center;
+	}
+	tr{
+		color:sienna;
+		background:linen;
+		 border:solid 2px sienna;
+	}
+	th{
+		 border:solid 2px sienna;
+	}
+	#t2{
+		width:500px;
+	}
+	table{
+		 border-collapse: collapse;
+/* 		 border:solid 2px sienna; */
+	}
+</style>
+</head>
+<body>
+<button id="buyer">buyer 실행 </button>
+
+<hr color="sienna">
+<div id="result">
+	<table>
+		<tr>
+			<th>거래처이름</th>
+			<th id=t2>거래처상세정보</th>
+		</tr>
+	
+		<tr>
+			<td id='nameList'></td>
+			<td id='viewDetail'></td>
+		</tr>
+	
+	</table>
+
+
+</div>
+
+</body>
+</html>

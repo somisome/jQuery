@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.js"></script>
+<script>
+$(function(){
+	$('#member').on('click',function(){
+		$.getJSON(
+			'memberList.jsp',
+			function(res){
+				code="<table>";
+				code+="<tr><th>이름</th><th>주소</th><th>전화번호</th></tr>";
+				$.each(res,function(i){
+					code+="<tr><td>"+ res[i].name + "</td>" ;
+					code+="<td>"+ res[i].addr + "</td>" ;
+					code+="<td>"+ res[i].tel + "</td><tr>" ;
+				})
+				code+="</table>";
+				$('#result').html(code);
+			}
+		)
+	});
+	
+});
+</script>
+<style>
+	tr{
+		color:sienna;
+		background:linen;
+	}
+</style>
+</head>
+<body>
+<button type="button" id="member">멤버리스트</button>
+
+<hr color="sienna">
+<div id="result">
+
+</div>
+</body>
+</html>

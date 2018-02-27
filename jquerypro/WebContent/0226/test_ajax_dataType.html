@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.js"></script>
+<script>
+	$(function(){
+		$('#txt').click(function(){
+			$.get(
+				'textData.jsp',		
+				function(res){//홍길동&개나리&...
+					str = res.split("&");
+					code="<ul>";
+					$.each(str,function(i){
+						code+="<li>"+str[i]+"</li>";
+					})
+					code+="</ul>";
+					$('#res1').html(code)
+				},
+				'text'
+			)
+/* 			$.ajax({
+				url:'textData.jsp',
+				type:'get',
+				success:function(res){//홍길동&개나리&...
+					str = res.split("&");
+					code="<ul>";
+					$.each(str,function(i){
+						code+="<li>"+str[i]+"</li>";
+					})
+					code+="</ul>";
+					$('#res1').html(code)
+				},
+				error:function(x){
+					alert("상태: "+x.status);
+				}
+			}) */
+		});
+		////////////////////////////////////////////////
+		$('#jarr').click(function(){
+			$.getJSON(
+					'JsonArr.jsp',
+					function(res){
+						code="<ol>"
+						$.each(res,function(i){
+							code+="<li>"+res[i]+"</li>"
+						})
+						code+="</ol>";
+						$('#res2').html(code);
+					}
+			
+			)
+			
+/* 			$.ajax({
+				url:'JsonArr.jsp',
+				type:'get',
+				success:function(res){
+					code="<ol>"
+					$.each(res,function(i){
+						code+="<li>"+res[i]+"</li>"
+					})
+					code+="</ol>";
+					$('#res2').html(code);
+				},
+				error:function(xarr){
+					alert("상태:"+xarr.status);
+				},
+				dataType:'json'
+			}) */
+			
+		});
+		/////////////////////////////////////////////////
+		$('#jobj').click(function(){
+			$.getJSON(
+					'JsonObj.jsp',
+					function(res){
+						code="이름: "+res.name+"<br>";
+						code+="주소: "+res.addr+"<br>";
+						code+="전화번호: "+res.tel+"<br>";
+						$('#res3').html(code);
+						
+					}
+			)
+/* 			$.ajax({
+				url:'JsonObj.jsp',
+				type:'get',
+				success:function(res){
+					code="이름: "+res.name+"<br>";
+					code+="주소: "+res.addr+"<br>";
+					code+="전화번호: "+res.tel+"<br>";
+					$('#res3').html(code);
+					
+				},
+				error:function(x){
+					alert("상태:"+x.status);
+				},
+				dataType:'json'
+			}) */
+		});
+			
+		/////////////////////////////////////////////////
+		$('#jmix').click(function(){
+			$.getJSON(
+				'JsonMix.jsp',
+				function(res){
+					code="";
+					$.each(res,function(i){
+						code+="<h4>"+(i+1)+"번째 회원 정보</h4>"
+						code+="이름: "+ res[i].name + "<br>" ;
+						code+="주소: "+ res[i].addr + "<br>" ;
+						code+="전화번호: "+ res[i].tel + "<br>" ;
+					})
+					code+="<br>";
+					$('#res4').html(code);
+				}
+			)
+			
+			/*
+			$.ajax({
+				url:'JsonMix.jsp',
+				type:'get',
+				success:function(res){
+					code="";
+					$.each(res,function(i){
+						code+="<h4>"+(i+1)+"번째 회원 정보</h4>"
+						code+="이름: "+ res[i].name + "<br>" ;
+						code+="주소: "+ res[i].addr + "<br>" ;
+						code+="전화번호: "+ res[i].tel + "<br>" ;
+					})
+					code+="<br>";
+					$('#res4').html(code);
+					
+					
+				},
+				error:function(x){
+					alert("상태:"+x.status);
+				},
+				dataType:'json'
+			})
+			*/
+		});
+		/////////////////////////////////////////////////
+	});
+</script>
+<style>
+	div{
+		float:left;
+		width:200px;
+		min-height:200px;
+		border: 2px solid lightblue;
+		margin:5px;
+	}
+</style>
+</head>
+
+<body>
+	<button id="txt">TextData 읽기</button>
+	<button id="jarr">JSONArrayData 읽기</button>
+	<button id="jobj">JSONObjData 읽기</button>
+	<button id="jmix">JSONMixData 읽기</button>
+	<br><hr color=pink><br>
+	
+	<div id="res1"></div>
+	<div id="res2"></div>
+	<div id="res3"></div>
+	<div id="res4"></div>
+	<hr>
+
+	<span>
+	.ajax의 단축메뉴<br>
+     $.get( url, data, success, dataType);<br>
+	 $.post( url, data, success, dataType);<br>
+	 $.getJSON( url, data, success)<br>
+		<br><hr><br>
+	단축메뉴는 입력 순서를 잘 지켜줘야 함!<br>
+	단축메뉴에는 error란이 없음!
+	
+	</span>
+</body>
+</html>

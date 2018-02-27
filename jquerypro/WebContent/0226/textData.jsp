@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% 
-	request.setCharacterEncoding("UTF-8");
-	String name=request.getParameter("name");
-	String age=request.getParameter("age");
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,7 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%=name %>님의 나이는 <%=age %>입니다.
-<br>
+<% 
+	//여기는 DB처리 하고(select,insert,delete,update)
+	//결과를 생성
+%>
+홍길동&개나리&진달래&무궁화&진달래&삼천리&금수강산
+
+
 </body>
 </html>

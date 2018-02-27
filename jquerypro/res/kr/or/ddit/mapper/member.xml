@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- sqlMap 및 쿼리 정의                  -->
+<!-- << 개정이력(Modification Information) >>            -->
+<!--  수정일       수정자          수정내용              -->
+<!--  =======      =======     =====================     -->
+<!--  2018.02.21.  윤소미       최초작성                 -->
+<!-- Copyright (c) 2018 by DDIT  All right reserved      -->
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="member">
+	<typeAlias alias="memberVO" type="kr.or.ddit.vo.MemberVO"/>
+	<sql id="selectAllMember">
+		SELECT *
+	 		FROM MEMBER
+	</sql>
+	<select id="memberList" resultClass="memberVO">
+		<include refid="selectAllMember"/>
+<!-- 		WHERE MEM_DELETE='n' -->
+	</select>
+	
+	
+<!-- 	<select id="memberInfo" parameterClass = "map" resultClass="memberVO"> -->
+<!-- 		<include refid="selectAllMember"/> -->
+<!-- 		WHERE MEM_ID = #mem_id# -->
+<!-- 		<dynamic> -->
+<!-- 			<isNotEmpty property="mem_pass"> -->
+<!-- 		 		AND MEM_PASS = #mem_pass# -->
+<!-- 			</isNotEmpty> -->
+<!-- 		</dynamic> -->
+<!-- 	</select> -->
+	
+<!-- 	<update id="updateMemberInfo" parameterClass="memberVO"> -->
+<!-- 		UPDATE MEMBER  -->
+<!-- 			SET MEM_PASS=#mem_pass#, -->
+<!-- 				MEM_ADD1=#mem_add1#, -->
+<!-- 				MEM_ADD2=#mem_add2#, -->
+<!-- 				MEM_HOMETEL=#mem_hometel#, -->
+<!-- 				MEM_COMTEL=#mem_comtel#, -->
+<!-- 				MEM_HP=#mem_hp#, -->
+<!-- 				MEM_JOB=#mem_job#, -->
+<!-- 				MEM_LIKE=#mem_like# -->
+<!-- 			WHERE MEM_ID=#mem_id# -->
+<!-- 	</update> -->
+	
+<!-- 	<insert id="insertMemberInfo" parameterClass="memberVO"> -->
+<!--   		INSERT INTO MEMBER  -->
+<!--   		(MEM_ID, MEM_PASS, MEM_NAME, MEM_REGNO1, MEM_REGNO2, MEM_ZIP, MEM_ADD1, MEM_ADD2, MEM_HOMETEL, MEM_COMTEL, MEM_HP, MEM_MAIL, MEM_JOB, MEM_LIKE)  -->
+<!--   		VALUES  -->
+<!--   		(#mem_id#,#mem_pass#,#mem_name#,#mem_regno1#,#mem_regno2#,#mem_zip#,#mem_add1#,#mem_add2#,#mem_hometel#,#mem_comtel#,#mem_hp#,#mem_mail#,#mem_job#,#mem_like#) -->
+<!-- 	</insert> -->
+	
+	
+<!-- 	<update id="deleteMemberInfo" parameterClass="map"> -->
+<!-- 		UPDATE MEMBER  -->
+<!-- 			SET MEM_DELETE='y' -->
+<!-- 			WHERE MEM_ID=#mem_id# -->
+<!-- 	</update> -->
+	
+	
+	
+	
+	
+	
+</sqlMap>
+
+
+
+
+

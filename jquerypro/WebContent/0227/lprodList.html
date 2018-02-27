@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.js"></script>
+<script>
+$(function(){
+	$('#lprod').on('click',function(){
+		$.getJSON(
+			'lprodList.jsp',
+			function(res){
+				code="<table>";
+				code+="<tr><th>상품분류코드</th><th>순번</th><th>상품분류명</th></tr>";
+				$.each(res,function(i){
+					code+="<tr><td>"+ res[i].gu + "</td>" ;
+					code+="<td>"+ res[i].id + "</td>" ;
+					code+="<td>"+ res[i].nm + "</td><tr>" ;
+				})
+				code+="</table>";
+				$('#result').html(code);
+			}
+		)
+	});
+	
+});
+</script>
+<style>
+	tr{
+		color:sienna;
+		background:linen;
+	}
+</style>
+</head>
+<body>
+<button id="lprod">lprod 리스트 가져오기</button>
+
+<hr color="sienna">
+<div id="result">
+
+</div>
+</body>
+</html>

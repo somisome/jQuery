@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+$(function(){
+	$('#btn1').click(function(){
+		$('#ff').attr('action','first.jsp'); // form의 action 설정
+		$('#ff').attr('method','post'); // form의 method 설정
+		$('#ff').submit();
+	})
+	
+	$('#btn2').click(function(){
+		$.ajax({
+		url:'ajax_info_post.jsp',
+		type:'POST',
+		data:"name="+$('#name').val()+"&age="+$('#age').val(),
+		success:function(datas){//jsp에서 수행한 결과의 값들, 응답받을 데이터
+			$('#res').html(datas);
+		},
+		error:function(x){
+			alert("상태: "+x.status);
+		},
+		dataType:'text'
+		})
+		/*
+		 var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		      $('#res').html(this.responseText);
+		    }
+		  };
+		  
+		data = "name="+ $('input[name="name"]').val()+"&"+"age="+$('input[name="age"]').val();
+		xhttp.open("POST", "ajax_info_post.jsp", true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send(data);
+	*/
+		
+		
+	})
+});
+</script>
+</head>
+<body>
+<form id="ff">
+	이름 : <input type="text" id="name" name="name"><br>
+	나이 : <input type="text" id="age" name="age"><br>
+	<hr>
+	<input type="button" id="btn1" value="기존의방식">
+	<input type="button" id="btn2" value="ajax방식"><br>
+	<hr>
+	<div id="res"></div>
+</form>
+</body>
+</html>
