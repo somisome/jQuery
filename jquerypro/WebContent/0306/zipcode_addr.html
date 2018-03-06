@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+
+<script>
+$(function(){
+	$.ajax({
+		url:'/jquerypro/0227/lprodList.jsp',
+		type:'get',
+		dataType:'json',
+		success:function(res){
+			code="";
+			$.each(res,function(i){
+				code+="<option value='"+res[i].id+"'>"+res[i].nm   +"</option>"
+			})
+			$('#lprod').html(code);
+			
+			guvalue = $('#lprod option:selected').val();
+			$.post(
+				'prodNameList.jsp',	
+				'prod_gu='+guvalue,
+				function(res){
+					code="";
+					$.each(res,function(i){
+						code+="<option value='"+res[i].id+"'>"+res[i].name+"</option>"
+					})
+					$('#prod').html(code);
+				},
+				'json'
+			)
+			
+			
+			
+			
+		},
+		error:function(){
+			
+		}
+	})
+	
+	
+	$('#lprod').on('change',function(){
+		guvalue = $(this).val();
+		$.post(
+			'prodNameList.jsp',	
+			'prod_gu='+guvalue,
+			function(res){
+				code="";
+				$.each(res,function(i){
+					code+="<option value='"+res[i].id+"'>"+res[i].name+"</option>"
+				})
+				$('#prod').html(code);
+			},
+			'json'
+		)
+	});
+	
+	
+	$('#prod').on('change',function(){
+		prodid = $(this).val();
+		$.post(
+			'prodDetail.jsp',	
+			'prod_id='+prodid,
+			function(res){
+				code="<table class='table table-striped'>";
+				code+="<tr><td>prod_id</td><td>"+res.id+"</td></tr>";
+				code+="<tr><td>prod_name</td><td>"+res.name+"</td></tr>";
+				code+="<tr><td>prod_lgu</td><td>"+res.lgu+"</td></tr>";
+				code+="<tr><td>prod_buyer</td><td>"+res.buyer+"</td></tr>";
+				code+="<tr><td>prod_cost</td><td>"+res.cost+"</td></tr>";
+				code+="<tr><td>prod_price</td><td>"+res.price+"</td></tr>";
+				code+="<tr><td>prod_sale</td><td>"+res.sale+"</td></tr>";
+				code+="<tr><td>prod_outline</td><td>"+res.outline+"</td></tr>";
+				code+="<tr><td>prod_detail</td><td>"+res.detail+"</td></tr>";
+				code+="<tr><td>prod_img</td><td>"+res.img+"</td></tr>";
+				code+="<tr><td>prod_totalstock</td><td>"+res.totalstock+"</td></tr>";
+				code+="<tr><td>prod_insdate</td><td>"+res.insdate+"</td></tr>";
+				code+="<tr><td>prod_properstock</td><td>"+res.properstock+"</td></tr>";
+				code+="<tr><td>prod_size</td><td>"+res.size+"</td></tr>";
+				code+="<tr><td>prod_color</td><td>"+res.color+"</td></tr>";
+				code+="<tr><td>prod_delivery</td><td>"+res.delivery+"</td></tr>";
+				code+="<tr><td>prod_unit</td><td>"+res.unit+"</td></tr>";
+				code+="<tr><td>prod_qtyin</td><td>"+res.qtyin+"</td></tr>";
+				code+="<tr><td>prod_qtysale</td><td>"+res.qtysale+"</td></tr>";
+				code+="<tr><td>prod_mileage</td><td>"+res.mileage+"</td></tr>";
+				code+="</table>";
+				$('#result').html(code);
+			},
+			'json'
+		)
+	});
+	
+	
+	
+	
+
+});
+</script>
+<style>
+
+/*  	td{  */
+/*   		width:200px;   */
+/*  		height:20px;   */
+/*  		text-align: center;  */
+ 		 
+/*  	}  */
+/*  	#result td{  */
+/*   		width:200px;   */
+/*  		height:20px;   */
+/*  		 border:solid 2px white;   */
+/*  		 text-align: center;  */
+/*  	}  */
+/* 	tr{ */
+/* 		background:lightblue; */
+/* 	} */
+
+ 	table{ 
+/* 		 border-collapse: collapse; */
+ 		 text-align: center; 
+ 	} 
+
+	
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>LPROD 분류 리스트</h2>
+  <p></p>
+  <form>
+    <div class="form-group">
+      <label for="lprod">분류리스트</label>
+      <select class="form-control" id="lprod">
+      </select>
+      <br>
+      <label for="prod">PROD 리스트</label>
+      <select multiple class="form-control" id="prod">
+      </select>
+    </div>
+	<br><hr><br>
+	<div id=result></div>	
+  </form>
+</div>
+
+<!-- ---------------------------------------------------------------------------- -->
+
+<!-- 	<table> -->
+<!-- 		<tr> -->
+<!-- 			<td> -->
+<!-- 				<select id="lprod"> -->
+<!-- 				</select> -->
+<!-- 			</td> -->
+<!-- 			<td> -->
+<!-- 				<select id="prod"> -->
+<!--     			<option value="1" disabled selected>모니터삼성전자15인치칼라</option> -->
+<!-- 				</select> -->
+<!-- 			</td> -->
+<!-- 		</tr> -->
+<!-- 		<tr> -->
+<!-- 			<td colspan=2> -->
+<!-- 				<div id='result'></div> -->
+<!-- 			</td> -->
+<!-- 		</tr> -->
+<!-- 	</table> -->
+
+</body>
+</html>
