@@ -9,7 +9,7 @@
   			<a href="#" class="list-group-item active disabled">게시판</a>
   			<a href="#" class="list-group-item lgi">자유게시판</a>
   			<a href="#" class="list-group-item lgi">공지사항</a>
-  			<a href="#" class="list-group-item lgi">QnA게시판</a>
+  			<a href="#" class="list-group-item lgi">QnA</a>
 		</div>      
 
     </div>

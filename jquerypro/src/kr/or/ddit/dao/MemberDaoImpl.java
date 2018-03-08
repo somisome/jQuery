@@ -10,6 +10,7 @@ import kr.or.ddit.ibatis.SqlMapClientFactory;
 import kr.or.ddit.service.MemberService;
 import kr.or.ddit.service.MemberServiceImpl;
 import kr.or.ddit.vo.MemberVO;
+import kr.or.ddit.vo.ZipVO;
 
 public class MemberDaoImpl implements MemberDao {
 	
@@ -34,6 +35,19 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public List<MemberVO> getMemberList() throws SQLException {
 		return client.queryForList("member.memberList");
+	}
+	@Override
+	public MemberVO idCheck(String data) throws SQLException {
+		return (MemberVO) client.queryForObject("member.idCheck",data);
+	}
+	@Override
+	public List<ZipVO> zipSearch(String dong) throws SQLException {
+		return client.queryForList("member.zipSearch",dong);
+	}
+	@Override
+	public String insertMember(MemberVO member) throws SQLException {
+		return (String) client.insert("member.insertMember",member);
+		
 	}
 
 }

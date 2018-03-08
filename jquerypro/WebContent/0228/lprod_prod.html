@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
 
 
@@ -27,7 +27,7 @@ $(function(){
 			
 			guvalue = $('#lprod option:selected').val();
 			$.post(
-				'prodNameList.jsp',	
+				'/jquerypro/0228/prodNameList.jsp',	
 				'prod_gu='+guvalue,
 				function(res){
 					code="";
@@ -53,7 +53,7 @@ $(function(){
 	$('#lprod').on('change',function(){
 		guvalue = $(this).val();
 		$.post(
-			'prodNameList.jsp',	
+			'/jquerypro/0228/prodNameList.jsp',	
 			'prod_gu='+guvalue,
 			function(res){
 				code="";
@@ -70,7 +70,7 @@ $(function(){
 	$('#prod').on('change',function(){
 		prodid = $(this).val();
 		$.post(
-			'prodDetail.jsp',	
+			'/jquerypro/0228/prodDetail.jsp',	
 			'prod_id='+prodid,
 			function(res){
 				code="<table class='table table-striped'>";

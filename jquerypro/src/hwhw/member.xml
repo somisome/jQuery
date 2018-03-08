@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- DB쿼리문                     							  -->
+<!-- << 개정이력(Modification Information) >>     	      -->
+<!--  수정일       수정자          수정내용           			  -->
+<!--  =======      =======     =====================   	  -->
+<!--  2018.02.21.  김우식       최초작성               			  -->
+<!-- Copyright (c) 2018 by DDIT  All right reserved    	  -->
+
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="member">
+	<typeAlias alias="memberVO" type="kr.or.ddit.member.vo.MemberVO"/>
+	<typeAlias alias="zipVO" type="kr.or.ddit.member.vo.ZipVO"/>
+	
+	<sql id="selectAllMember">
+		SELECT *
+		FROM MEMBER
+	</sql>
+	
+	<select id="memberList" resultClass="memberVO">
+		<include refid="selectAllMember"/>
+		WHERE MEM_DELETE = 'n'
+	</select>
+	
+	<select id="idCheck" parameterClass="String" resultClass="memberVO">
+		SELECT MEM_ID
+		FROM MEMBER2
+		WHERE MEM_ID = #mem_id#
+	</select>
+	
+	<select id="zipSearch" parameterClass="String" resultClass="zipVO">
+		SELECT *
+		FROM ZIPTB
+		WHERE DONG like '%'||#dong#||'%'
+	</select>
+	
+	<select id="zipSido" resultClass="zipVO">
+		SELECT DISTINCT SIDO
+		FROM ZIPTB
+	</select>
+	
+	<select id="zipGugun" parameterClass="String" resultClass="zipVO">
+		SELECT DISTINCT GUGUN
+		FROM ZIPTB
+		WHERE SIDO = #sido#
+	</select>
+
+	<select id="zipDong" parameterClass="String" resultClass="zipVO">
+		SELECT DISTINCT DONG
+		FROM ZIPTB
+		WHERE GUGUN = #gugun#
+	</select>
+	
+	<select id="zipDetail" parameterClass="String" resultClass="zipVO">
+		SELECT *
+		FROM ZIPTB
+		WHERE DONG = #dong#
+	</select>
+	
+	<insert id="insertMember" parameterClass="memberVO">
+		INSERT INTO MEMBER2(
+			MEM_ID,
+			MEM_PASS,
+			MEM_NAME,
+			MEM_ZIP,
+			MEM_ADD1,
+			MEM_ADD2,
+			MEM_HP,
+			MEM_MAIL
+		) 
+		VALUES(
+			#mem_id#,
+			#mem_pass#,
+			#mem_name#,
+			#mem_zip#,
+			#mem_add1#,
+			#mem_add2#,
+			#mem_hp#,
+			#mem_mail#
+		)
+		
+		<selectKey keyProperty="mem_name" resultClass="String">
+			SELECT MEM_NAME FROM MEMBER2
+			WHERE MEM_NAME = #mem_name#
+		</selectKey>
+		
+	</insert>
+	
+	
+</sqlMap>

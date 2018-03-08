@@ -1,0 +1,52 @@
+﻿{
+   "totalpage" : "4",
+   "data" : [
+
+         { 
+           "seq"  : "20",
+           "subject" : "제목목20",
+           "writer" : "이름20",
+           "content" : "내용20"
+ 
+         },
+         { 
+           "seq"  : "19",
+           "subject" : "제목19",
+           "writer" : "이름19",
+            "content" : "내용19"
+ 
+         },
+         { 
+           "seq"  : "18",
+           "subject" : "제목18",
+           "writer" : "이름18",
+            "content" : "내용18"
+ 
+         },
+          { 
+           "seq"  : "17",
+           "subject" : "제목17",
+           "writer" : "이름17",
+            "content" : "내용17"
+ 
+         },
+         { 
+           "seq"  : "16",
+           "subject" : "제목16",
+           "writer" : "이름16",
+            "content" : "내용16"
+ 
+         }
+    ]
+
+
+}
+
+
+
+
+
+
+
+
+

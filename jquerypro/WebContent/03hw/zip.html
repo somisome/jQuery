@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+	$(function(){
+		$.ajax({
+			url : 'sido.jsp',
+			type : 'get',
+			dataType : 'json',
+			success : function(res){
+				code = "";
+				$.each(res, function(i){
+					code += "<option>" + res[i].SIDO + "</option>"; 
+				})
+				$('#sido').html(code);
+				$('#sido').trigger('change');
+				
+			},
+			error : function(xhr){
+				alert("상태 : " + xhr.status);
+			}
+		})
+		
+		$('#sido').on('change', function(){
+			sivalue = $(this).val();
+			
+			$.post(
+				'gugun.jsp',
+				"si=" + sivalue,
+				function(res){
+					code = "";
+					$.each(res, function(i){
+						code += "<option>" + res[i].gugun + "</option>";
+					})
+					$('#gugun').html(code);
+					$('#gugun').trigger('change');
+				},
+				'json'
+			)
+		})
+		
+		$('#gugun').on('change', function(){
+			guvalue = $(this).val();
+			
+			$.post(
+				'dong.jsp',
+				"gu=" + guvalue,
+				function(res){
+					code = "";
+					$.each(res, function(i){
+						code += "<option>" + res[i].dong + "</option>";
+					})
+					$('#dong').html(code);
+					$('#dong').trigger('change');
+				},
+				'json'
+			)
+		})
+		
+		$('#dong').on('change', function(){
+			
+			zipval = $(this).val();
+			$.post(
+				'zipDetail.jsp',
+				'zipCode='+zipval,
+				function(res){
+					code = "<table><tr><th>우편번호</th><th>주소</th><th>번지</th></tr>";
+					$.each(res, function(i){
+						code += "<tr class='ziptr'><td>" + res[i].zipcode + "</td>";
+						code += "<td>" + res[i].addr + "</td>";
+						code += "<td>" + res[i].bunji+ "</td></tr>";
+					})
+					code += "</table>";
+					$('#result').html(code);
+				},
+				'json'
+			)
+			
+		})
+	})
+
+</script>
+<style>
+	td {
+		text-aling : center;
+		width : 150px;
+		height : 30px;
+	}
+</style>
+</head>
+<body>
+
+<div class="container">
+	<h2>우편번호 검색</h2>
+	<p></p>
+	<form>
+		<div class="form-group">
+			<label for="sel1">시,도</label>
+			<select class="form-control" id="sido"></select>
+			<br>
+			<label for="sel2">구,군</label>
+			<select class="form-control" id="gugun"></select>
+			<br>
+			<label for="sel3">동,면,리</label>
+			<select class="form-control" id="dong"></select>
+		</div>
+		<div id="result"></div>
+	</form>
+</div>
+</body>
+</html>

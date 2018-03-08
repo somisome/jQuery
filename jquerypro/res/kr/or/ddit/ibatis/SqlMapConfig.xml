@@ -34,7 +34,9 @@
 	</transactionManager>
 	<sqlMap resource="kr/or/ddit/mapper/member.xml"/>
 	<sqlMap resource="kr/or/ddit/mapper/lprod.xml"/>
+	<sqlMap resource="kr/or/ddit/mapper/prod.xml"/>
 	<sqlMap resource="kr/or/ddit/mapper/buyer.xml"/>
+	<sqlMap resource="kr/or/ddit/mapper/board.xml"/>
 </sqlMapConfig>
 
 

@@ -10,6 +10,7 @@
     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="member">
 	<typeAlias alias="memberVO" type="kr.or.ddit.vo.MemberVO"/>
+	<typeAlias alias="zipVO" type="kr.or.ddit.vo.ZipVO"/>
 	<sql id="selectAllMember">
 		SELECT *
 	 		FROM MEMBER
@@ -18,6 +19,60 @@
 		<include refid="selectAllMember"/>
 <!-- 		WHERE MEM_DELETE='n' -->
 	</select>
+	
+	<!-- id중복검사 -->
+	<select id="idCheck" parameterClass="String" resultClass="memberVO">
+<!-- 		select mem_id from member2 where mem_id=#data# -->
+		select * from member2 where mem_id=#data#
+	</select>
+	
+	<!-- 우편번호검색 -->	
+	<select id="zipSearch" parameterClass="String" resultClass="zipVO">
+		select * from ziptb where dong like '%'||#dong#||'%'
+	</select>
+	
+	<!-- 가입 -->
+	<insert id="insertMember" parameterClass="memberVO"  >
+		insert into member2
+		(MEM_ID, MEM_PASS, MEM_NAME, MEM_REGNO1, MEM_REGNO2, MEM_ZIP, MEM_ADD1, MEM_ADD2, MEM_HOMETEL, MEM_COMTEL, MEM_HP, MEM_MAIL, MEM_JOB, MEM_LIKE)
+		values
+		(#mem_id#,#mem_pass#,#mem_name#,#mem_regno1#,#mem_regno2#,#mem_zip#,#mem_add1#,#mem_add2#,#mem_hometel#,#mem_comtel#,#mem_hp#,#mem_mail#,#mem_job#,#mem_like#)	
+		<selectKey keyProperty="MEM_NAME" resultClass="String">
+			select mem_name from member2
+			where mem_name=#mem_name#
+		</selectKey>
+	
+	</insert>
+	
+	
+	<select id="zipSido" resultClass="zipVO">
+		SELECT DISTINCT SIDO
+		FROM ZIPTB
+	</select>
+	
+	<select id="zipGugun" parameterClass="String" resultClass="zipVO">
+		SELECT DISTINCT GUGUN
+		FROM ZIPTB
+		WHERE SIDO = #sido#
+	</select>
+
+	<select id="zipDong" parameterClass="String" resultClass="zipVO">
+		SELECT DISTINCT DONG
+		FROM ZIPTB
+		WHERE GUGUN = #gugun#
+	</select>
+	
+	<select id="zipDetail" parameterClass="String" resultClass="zipVO">
+		SELECT *
+		FROM ZIPTB
+		WHERE DONG = #dong#
+	</select>
+	
+	
+	
+	
+	
+	
 	
 	
 <!-- 	<select id="memberInfo" parameterClass = "map" resultClass="memberVO"> -->

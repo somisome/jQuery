@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="../js/jquery-3.3.1.js"></script>
+<!-- <script src="../js/jquery-3.3.1.js"></script> -->
 <script>
 $(function(){
 	$('#member').on('click',function(){
 		$.getJSON(
-			'memberList.jsp',
+			'/jquerypro/0226/memberList.jsp',
 			function(res){
 				code="<table>";
 				code+="<tr><th>이름</th><th>주소</th><th>전화번호</th></tr>";

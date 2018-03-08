@@ -1,0 +1,83 @@
+﻿<style>
+    #btngroup1 {
+       width : 90%;
+       text-align : center;
+       float : left;
+       margin-top : 20px
+    }
+    #btngroup2{
+       text-align : right;
+       margin-top : 20px;
+    }
+    #btngroup1 button{
+       margin : 3px;
+       padding : 3px;
+       width : 30px;
+    }
+  
+  </style>
+  
+</head>
+<body>
+ 
+ <!-- 게시판 list출력  -->
+<div id="accordion">
+</div>
+
+<!-- 페이지 네비게이션 버튼 출력  -->
+<div id="btngroup1">
+</div>
+
+<div class='divevent' id='btngroup2'>
+  <button name="write" class="action">글쓰기</button>
+</div>
+  
+ 
+ <div id="dialog-form" title="글쓰기">
+   <form id="writef" >
+    <fieldset>
+      <label for="writer">이름</label>
+      <input type="text" name="writer" id="writer"  class="text ui-widget-content ui-corner-all">
+      <br>
+      <label for="subject">제목</label>
+      <input type="text" name="subject" id="subject"  class="text ui-widget-content ui-corner-all">
+      <br>
+      <label for="mail">이메일</label>
+      <input type="text" name="mail" id="mail"  class="text ui-widget-content ui-corner-all">
+      <br>
+      <label for="password">비밀번호</label>
+      <input type="password" name="password" id="password" class="text ui-widget-content ui-corner-all">
+      <br>
+      <label for="content">내용</label>
+      <textarea rows="15" cols="30" name="content" id="content" class="text ui-widget-content ui-corner-all"></textarea>
+      
+    </fieldset>
+  </form>
+</div>
+
+<div id="modify-form" title="수정하기">
+   <form id="modify" >
+    <fieldset>
+       <input type="hidden" name="num" id="m_num" >
+    
+      <label for="m_writer">이름</label>
+      <input type="text" name="writer" id="m_writer"  class="text ui-widget-content ui-corner-all">
+      <br>
+      <label for="m_subject">제목</label>
+      <input type="text" name="subject" id="m_subject"  class="text ui-widget-content ui-corner-all">
+      <br>
+      <label for="m_mail">이메일</label>
+      <input type="text" name="mail" id="m_mail"  class="text ui-widget-content ui-corner-all">
+      <br>
+      <label for="m_password">비밀번호</label>
+      <input type="password" name="password" id="m_password" class="text ui-widget-content ui-corner-all">
+      <br>
+      <label for="m_content">내용</label>
+      <textarea rows="15" cols="30" name="content" id="m_content" class="text ui-widget-content ui-corner-all"></textarea>
+      
+    </fieldset>
+  </form>
+</div>
+ 
+</body>
+</html>

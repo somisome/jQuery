@@ -7,6 +7,7 @@ import java.util.Map;
 import kr.or.ddit.dao.MemberDao;
 import kr.or.ddit.dao.MemberDaoImpl;
 import kr.or.ddit.vo.MemberVO;
+import kr.or.ddit.vo.ZipVO;
 
 public class MemberServiceImpl implements MemberService {
 
@@ -38,6 +39,18 @@ public class MemberServiceImpl implements MemberService {
 			e.printStackTrace();
 		}
 		return memberList;
+	}
+	@Override
+	public MemberVO idCheck(String id) throws SQLException {
+		return dao.idCheck(id);
+	}
+	@Override
+	public List<ZipVO> zipSearch(String dong) throws SQLException {
+		return dao.zipSearch(dong);
+	}
+	@Override
+	public String insertMember(MemberVO member) throws SQLException {
+		return dao.insertMember(member);
 	}
 
 }
