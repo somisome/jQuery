@@ -31,28 +31,28 @@ public class ZipDaoImpl implements ZipDao {
 	
 	@Override
 	public List<ZipVO> zipSearch(String dong) throws SQLException {
-		return client.queryForList("member.zipSearch", dong);
+		return client.queryForList("zip.zipSearch", dong);
 	}
 
 
 	@Override
 	public List<ZipVO> zipSido() throws SQLException {
-		return client.queryForList("member.zipSido");
+		return client.queryForList("zip.zipSido");
 	}
 
 	@Override
 	public List<ZipVO> zipGugun(String gugun) throws SQLException {
-		return client.queryForList("member.zipGugun", gugun);
+		return client.queryForList("zip.zipGugun", gugun);
 	}
 
 	@Override
 	public List<ZipVO> zipDong(String dong) throws SQLException {
-		return client.queryForList("member.zipDong", dong);
+		return client.queryForList("zip.zipDong", dong);
 	}
 
 	@Override
 	public List<ZipVO> zipDetail(String detail) throws SQLException {
-		return client.queryForList("member.zipDetail", detail);
+		return client.queryForList("zip.zipDetail", detail);
 	}
 
 

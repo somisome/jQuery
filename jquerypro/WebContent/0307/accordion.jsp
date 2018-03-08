@@ -128,11 +128,33 @@
 			})
 		};
 		
-		///////수정모달창에 해당 번호의 내용을 출력하기/////////////////////////////////////
-		$('#updateModal').on('click',function(){
-			
-			
-		});
+		///////수정모달창에 해당 번호의 내용을 출력하기위한 함수정의/////////////////////////////////////
+		viewServer=function(seq){
+			$.ajax({
+				url:'${pageContext.request.contextPath}/DetailView',
+				data:{'seqno':seq},
+				async: false, // 비동기가 아닌 동기방식으로 처리한다.
+				success: function(res){ //결과값을 board객체에 담는다.
+					board.seq=res.seq; 
+					board.subject=res.subject;
+					board.writer=res.writer;
+					board.mail=res.mail;
+					board.content=res.content;
+				},
+				error:function(xhr){
+					
+				},
+				dataType:'json'
+			})
+		};
+		//viewServer를 호출해서 updateModal창에 출력한다.
+		//viewServer에서 데이터를 완벽하게 가져와야만 모달창에 출력할 수 있다.
+		
+		$('#u_writer').val(res.writer);	
+		$('#u_subject').val(res.subject);	
+		$('#u_mail').val(res.mail);	
+		$('#u_content').val(res.content);	
+		
 		////////삭제/////////////////////////////////////////////////////
 		$('#deleteModal').on('click',function(){
 			

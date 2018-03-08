@@ -72,6 +72,7 @@
 				'zipDetail.jsp',
 				'zipCode='+zipval,
 				function(res){
+					code="";
 					code = "<table><tr><th>우편번호</th><th>주소</th><th>번지</th></tr>";
 					$.each(res, function(i){
 						code += "<tr class='ziptr'><td>" + res[i].zipcode + "</td>";

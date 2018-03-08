@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- sqlMap 및 쿼리 정의                  -->
+<!-- << 개정이력(Modification Information) >>            -->
+<!--  수정일       수정자          수정내용              -->
+<!--  =======      =======     =====================     -->
+<!--  2018.03.08.  윤소미       최초작성                 -->
+<!-- Copyright (c) 2018 by DDIT  All right reserved      -->
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="zip">
+	<typeAlias alias="zipVO" type="kr.or.ddit.vo.ZipVO"/>
+	
+	<!-- 우편번호검색 -->	
+	<select id="zipSearch" parameterClass="String" resultClass="zipVO">
+		select * from ziptb where dong like '%'||#dong#||'%'
+	</select>
+	
+	<select id="zipSido" resultClass="zipVO">
+		SELECT DISTINCT SIDO
+		FROM ZIPTB
+	</select>
+	
+	<select id="zipGugun" parameterClass="String" resultClass="zipVO">
+		SELECT DISTINCT GUGUN
+		FROM ZIPTB
+		WHERE SIDO = #sido#
+	</select>
+
+	<select id="zipDong" parameterClass="String" resultClass="zipVO">
+		SELECT DISTINCT DONG
+		FROM ZIPTB
+		WHERE GUGUN = #gugun#
+	</select>
+	
+	<select id="zipDetail" parameterClass="String" resultClass="zipVO">
+		SELECT *
+		FROM ZIPTB
+		WHERE DONG = #dong#
+	</select>
+	
+</sqlMap>
+
+
+
+
+

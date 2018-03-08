@@ -37,6 +37,7 @@
 	<sqlMap resource="kr/or/ddit/mapper/prod.xml"/>
 	<sqlMap resource="kr/or/ddit/mapper/buyer.xml"/>
 	<sqlMap resource="kr/or/ddit/mapper/board.xml"/>
+	<sqlMap resource="kr/or/ddit/mapper/zip.xml"/>
 </sqlMapConfig>
 
 

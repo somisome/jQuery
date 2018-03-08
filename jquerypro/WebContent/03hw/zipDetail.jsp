@@ -4,6 +4,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ [   
 <%
 	String zipDetail = request.getParameter("zipCode");
 	ZipService service = ZipServiceImpl.getInstance();

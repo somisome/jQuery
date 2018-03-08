@@ -90,19 +90,14 @@
 			txtsub = $(this).text().trim();
 			$('.text-left h1').text(txtsub);
 			proc();
-			
 		});
 		
 		//로그인
 		$('.navLogo .nav #login').click(function(){
-			
-			
 			txtsub = $(this).text().trim();
 			$('.text-left h1').text(txtsub);
 			proc();
-			
 		});
-		
 		
 		
 		function proc(){
