@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../js/board.js"></script>
 
 
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
@@ -25,65 +26,15 @@
 		$('#dialog-form').hide();
 		$('#modify-form').hide();
 		//$('#accordion').accordion();
-		
-		var board = {}; //board객체
+// 		var board = {}; //board객체
 		var currentPage = 1;
-		
 		//함수호출 : readServer(1), readServer(2),
-		//readServer 함수 정의
-		var readServer = function(cpage){
-			//게시판의 내용 가져오기;
-			$.ajax({
-				url : '${pageContext.request.contextPath}/BoardList', //서블릿 파일
-				type : 'get',
-				data : {'cpage' : cpage},
-				success : function(res){
-					code = "";
-					$.each(res.data, function(i,v){
-						/* code += "<h3>" + res.data[i].subject + "</h3>";
-						code += "<div><p>" + res.data[i].writer + "</p></div>"; */
-						code +='<button class="accordion">' + v.subject + '</button>';
-    					code += '<div class="panel">';
-    					code += "<p style='width: 80%; float: left;'>작성자 : " +  v.writer 
-				            + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-				            + "이메일 : " + v.mail + "</p>"
-				            + '<p style="text-align:right; vertical-align:top;"><button idx="' 
-				            + v.seq + '" name="modify" class="action"  data-toggle="modal" data-target="#updateModal"    >수정</button><button idx="' 
-				            + v.seq + '" name="delete" class="action" data-toggle="modal" data-target="#deleteModal" >삭제</button></p>'
-				            + "<hr/>";
-				        code += "<p>" + v.content + "</p>"
-			            code += '</div>';
-    				})
-    				
-    				
-    				
-    				$('#accordionList').empty();
-    				$('#accordionList').append(code);
-    				//setting();
-					/* }) */
-// 					$('#accordion').accordion();
-			
-					//페이지 버튼
-					$('#btngroup1').empty();
-					for(i=1; i<=res.totalPage;i++){
-						$("<button class='paging'></button>").text(i).appendTo('#btngroup1');
-						//새로 만들어진 버튼이기 때문에 이벤트는 delegate방식의 이벤트다
-					}
-			
-				},
-				error : function(xhr){
-					alert("상태 : " + xhr.status);
-				},
-				dataType : 'json'
-			})
-		} 
-		////////////////////////////////////////////////////////////////////////////////
-		
 		//readServer 호출
 		readServer(1);
 		
 		//아코디언 접었다 폈다
 		acc=$('.accordion');
+
 		//delegate 방식
 		$('#accordionList').on('click','.accordion',function(){
 			panel = $(this).next();
@@ -99,70 +50,46 @@
 		
 		////////////페이지버튼에 대한 이벤트///////
 		$('#btngroup1').on('click','button.paging',function(){
-			cpage = $(this).text();
-			readServer(cpage);
+			currentPage = $(this).text();
+			readServer(currentPage);
 		});
 		////////////글쓰기 모달창에서 확인버튼 입력 후 ////////////////
 		$('#writeModal #w_submit').on('click',function(){
 			writeServer();
 		});
-		////////////////writeServer, function//////////////
-		writeServer = function(){
-			//입력한 모든 값을 가져온다.
-			$.ajax({
-				
-				url: '${pageContext.request.contextPath}/BoardWrite',
-				type: 'post',
-				data: $('#writeForm').serialize(),
-				dataType: 'json',
-				success : function(res){
-					alert(res.flag);
-					$('#writeModal').modal('hide'); //모달창 닫기
-					//모달창 닫을 때 입력된 값 지워야 함
-					
-					readServer(1);
-				},
-				error : function(xhr){
-					alert("상태 : "+xhr.status);
-				}
-			})
-		};
-		
-		///////수정모달창에 해당 번호의 내용을 출력하기위한 함수정의/////////////////////////////////////
-		viewServer=function(seq){
-			$.ajax({
-				url:'${pageContext.request.contextPath}/DetailView',
-				data:{'seqno':seq},
-				async: false, // 비동기가 아닌 동기방식으로 처리한다.
-				success: function(res){ //결과값을 board객체에 담는다.
-					board.seq=res.seq; 
-					board.subject=res.subject;
-					board.writer=res.writer;
-					board.mail=res.mail;
-					board.content=res.content;
-				},
-				error:function(xhr){
-					
-				},
-				dataType:'json'
-			})
-		};
+
 		//viewServer를 호출해서 updateModal창에 출력한다.
 		//viewServer에서 데이터를 완벽하게 가져와야만 모달창에 출력할 수 있다.
+		//수정버튼에 대한 이벤트 - delegate 방식
+		$('#accordionList').on('click','.action',function(){
+			action = $(this).attr('name');
+			seqno = $(this).attr('idx');
+			
+			if(action=="modify"){
+				viewServer(seqno);
+				//viewServer에서 실행되어 board객체에 저장되어 있는 값을 수정폼에 출력
+				$('#u_seq').val(board.seq);	
+				$('#u_writer').val(board.writer);	
+				$('#u_subject').val(board.subject);	
+				$('#u_mail').val(board.mail);	
+				$('#u_content').val(board.content);	
+			}else if(action=="delete"){
+				deleteServer(currentPage, seqno);
+			}			
+		});
 		
-		$('#u_writer').val(res.writer);	
-		$('#u_subject').val(res.subject);	
-		$('#u_mail').val(res.mail);	
-		$('#u_content').val(res.content);	
+		///////////수정 모달창 수정입력 후  확인버튼 클릭 할 때 (수정완료)////////////////////////////////////////////
+		$('#u_submit').on('click',function(){
+			//수정입력된 내용을 가져온다
+			updateServer(currentPage);
+			
+		});
 		
 		////////삭제/////////////////////////////////////////////////////
 		$('#deleteModal').on('click',function(){
 			
 			
 		});
-		
-		
-		
 		
 		////////////모달창 닫기 - 입력값 지우기/////////////////////////
 		$('#writeModal').on('hide.bs.modal',function(){
@@ -360,6 +287,7 @@
  <!---------- updateModal 수정폼 ---------------->
   <div class="modal fade" id="updateModal" role="dialog">
     <div class="modal-dialog">
+    
     
       <!-- Modal content-->
       <div class="modal-content">
